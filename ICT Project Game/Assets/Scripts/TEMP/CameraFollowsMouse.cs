@@ -9,35 +9,38 @@ using System.Collections.Generic;
 
 public class CameraFollowsMouse : MonoBehaviour
 {
-    //UI Variable's
-    private GameObject m_StanimaText;
-    private GameObject m_InteractableDoorText;
-    private bool m_InteractWithDoor;
-
     //Movement Variable's
     private float m_MoveFoward;
     private float m_TurnAround;
     private float m_RotateLeftRight;
     private float m_RotateUpDown;
     private float m_RotateY;
-    private float m_MouseSensitivity = 5f;
-    private float m_CameraRange = 60.0f;
-    private float m_VerticalRotation = 0f;
+    private float m_MouseSensitivity;
+    private float m_CameraRange;
+    private float m_VerticalRotation;
+    [SerializeField]
     private float m_Speed;
-    private float m_StanimaCounter = 100f;
     private Vector3 m_Move;
 
     //Other Variables
     private bool m_ShowMouse;
+    private GameObject m_HoldingComponent;
 
     //Serialized Variable's
+    [Header("Developer stuff. Do not touch")]
     [SerializeField]
     private float m_RayCastHeight;
+    [SerializeField]
+    private GameObject m_ComponentHolder;
 
     void Start()
     {
-        m_InteractWithDoor = false;
         m_ShowMouse = false;
+
+        m_CameraRange = 30.0f;
+        m_MouseSensitivity = 2f;
+        m_VerticalRotation = 0;
+        m_Speed = 4f;
     }
 
     void Update()
@@ -47,7 +50,10 @@ public class CameraFollowsMouse : MonoBehaviour
         //Get the movement using keyboard and controller
         Movement();
         //Create the raycast and look for a hit on a door
-        RayCast();
+        if((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+        {
+            ComponentHolding();
+        }
 
         transform.position += m_Move * m_Speed * Time.deltaTime;
 
@@ -65,9 +71,6 @@ public class CameraFollowsMouse : MonoBehaviour
         m_MoveFoward = Input.GetAxis("Vertical");
         m_TurnAround = Input.GetAxis("Horizontal");
 
-        //Checking if he can run. If is is true he will add speed and decrease the stanima, else he resets the speed and add more to stanima
-        Stanima();
-
         //Adds The Movement
         m_Move = new Vector3(m_TurnAround, 0, m_MoveFoward);
         m_Move = transform.rotation * m_Move;
@@ -83,39 +86,52 @@ public class CameraFollowsMouse : MonoBehaviour
         m_VerticalRotation = Mathf.Clamp(m_VerticalRotation, -m_CameraRange, m_CameraRange);
         Camera.main.transform.localRotation = Quaternion.Euler(m_VerticalRotation, 0, 0);
     }
-    void Stanima()
-    {
-        if (Input.GetKey(KeyCode.LeftShift) && !(m_StanimaCounter <= 0))
-        {
-            m_Speed = 10f;
-            m_StanimaCounter -= 0.25f;
-        }
-        else if (!(Input.GetKey(KeyCode.LeftShift)) && (m_StanimaCounter < 100))
-        {
-            m_Speed = 4f;
-            m_StanimaCounter += 0.25f;
-        }
-        else
-        {
-            m_Speed = 4f;
-        }
-    }
 
-    void RayCast()
+    void ComponentHolding()
     {
-        //Initializing Variable's
-        RaycastHit hit;
-        Vector3 RayCastStartPosition = new Vector3(transform.position.x, transform.position.y + m_RayCastHeight, transform.position.z);
-
-        //Draw The Ray For Debugging
-        Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
-        //RayCast Hit
-        if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f))
+        if(m_HoldingComponent == null)
         {
-            switch (hit.collider.tag)
+            //Initializing Variable's
+            RaycastHit hit;
+            Vector3 RayCastStartPosition = new Vector3(transform.position.x, transform.position.y + m_RayCastHeight, transform.position.z);
+
+            //Draw The Ray For Debugging
+            Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
+            //RayCast Hit
+            if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f))
             {
+                switch (hit.collider.tag)
+                {
+                    case "Pickable":
+                        GameObject Component = hit.collider.gameObject;
+                        PcComponent ComponentScript = Component.GetComponent<PcComponent>();
 
+                        Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                        Component.GetComponent<BoxCollider>().enabled = false;
+
+                        ComponentScript.GS_PickedUp = true;
+
+                        Component.transform.parent = m_ComponentHolder.transform;
+
+                        Component.transform.localPosition = Vector3.zero;
+                        Component.transform.localEulerAngles = Vector3.zero;
+
+                        m_HoldingComponent = Component;
+                        break;
+                }
             }
+        }
+        else if(m_HoldingComponent != null)
+        {
+            PcComponent ComponentScript = m_HoldingComponent.GetComponent<PcComponent>();
+            ComponentScript.GS_PickedUp = false;
+
+            m_HoldingComponent.transform.parent = null;
+
+            m_HoldingComponent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            m_HoldingComponent.GetComponent<BoxCollider>().enabled = true;
+
+            m_HoldingComponent = null;
         }
     }
 }
