@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class S_UIManager : MonoBehaviour
 {
-    private GameManager m_GameManagerScript;
+    private s_GameManager m_GameManagerScript;
 
     void Start()
     {
-        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<s_GameManager>();
     }
 
     public void ChangeScene(string Scene)

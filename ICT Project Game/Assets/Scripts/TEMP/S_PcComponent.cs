@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PcComponent : MonoBehaviour
+public class S_PcComponent : MonoBehaviour
 {
     private bool m_PickedUp;
 

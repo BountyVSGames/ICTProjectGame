@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(CameraFollowsMouse))]
+[RequireComponent(typeof(S_CameraFollowsMouse))]
 
-public class CameraFollowsMouse : MonoBehaviour
+public class S_CameraFollowsMouse : MonoBehaviour
 {
     //Movement Variable's
     private float m_MoveFoward;
@@ -37,7 +37,7 @@ public class CameraFollowsMouse : MonoBehaviour
     {
         m_ShowMouse = false;
 
-        m_CameraRange = 30.0f;
+        m_CameraRange = 50.0f;
         m_MouseSensitivity = 2f;
         m_VerticalRotation = 0;
         m_Speed = 4f;
@@ -46,7 +46,10 @@ public class CameraFollowsMouse : MonoBehaviour
     void Update()
     {
         //Get the rotation of the mouse and controller
-        Rotation();
+        if(!Input.GetMouseButton(1))
+        {
+            Rotation();
+        }
         //Get the movement using keyboard and controller
         Movement();
         //Create the raycast and look for a hit on a door
@@ -104,7 +107,7 @@ public class CameraFollowsMouse : MonoBehaviour
                 {
                     case "Pickable":
                         GameObject Component = hit.collider.gameObject;
-                        PcComponent ComponentScript = Component.GetComponent<PcComponent>();
+                        S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
 
                         Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                         Component.GetComponent<BoxCollider>().enabled = false;
@@ -117,13 +120,14 @@ public class CameraFollowsMouse : MonoBehaviour
                         Component.transform.localEulerAngles = Vector3.zero;
 
                         m_HoldingComponent = Component;
+                        m_CameraRange = 30f;
                         break;
                 }
             }
         }
         else if(m_HoldingComponent != null)
         {
-            PcComponent ComponentScript = m_HoldingComponent.GetComponent<PcComponent>();
+            S_PcComponent ComponentScript = m_HoldingComponent.GetComponent<S_PcComponent>();
             ComponentScript.GS_PickedUp = false;
 
             m_HoldingComponent.transform.parent = null;
@@ -132,6 +136,7 @@ public class CameraFollowsMouse : MonoBehaviour
             m_HoldingComponent.GetComponent<BoxCollider>().enabled = true;
 
             m_HoldingComponent = null;
+            m_CameraRange = 50f;
         }
     }
 }
