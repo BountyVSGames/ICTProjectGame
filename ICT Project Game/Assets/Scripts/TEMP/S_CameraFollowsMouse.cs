@@ -22,6 +22,8 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_Speed;
     private Vector3 m_Move;
 
+    private S_GameManager m_GameManagerScript;
+
     //Other Variables
     private bool m_ShowMouse;
     private GameObject m_HoldingComponent;
@@ -35,12 +37,15 @@ public class S_CameraFollowsMouse : MonoBehaviour
 
     void Start()
     {
+        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
+
         m_ShowMouse = false;
 
         m_CameraRange = 50.0f;
-        m_MouseSensitivity = 2f;
         m_VerticalRotation = 0;
         m_Speed = 4f;
+
+        m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
     }
 
     void Update()

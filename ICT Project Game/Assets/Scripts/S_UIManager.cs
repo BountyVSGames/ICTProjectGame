@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class S_UIManager : MonoBehaviour
 {
-    private s_GameManager m_GameManagerScript;
+    private S_GameManager m_GameManagerScript;
 
     void Start()
     {
-        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<s_GameManager>();
+        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
     }
 
     public void ChangeScene(string Scene)

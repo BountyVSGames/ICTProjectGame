@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class s_GameManager : MonoBehaviour
+public class S_GameManager : MonoBehaviour
 {
     private enum e_GameState
     {
@@ -13,6 +13,13 @@ public class s_GameManager : MonoBehaviour
     }
 
     private e_GameState m_GameState;
+
+    private float m_MouseSensitivity;
+
+    public float G_MouseSensitivity
+    {
+        get { return m_MouseSensitivity; }
+    }
 
     void Awake()
     {
@@ -27,6 +34,8 @@ public class s_GameManager : MonoBehaviour
     void Start()
     {
         m_GameState = e_GameState.menu;
+
+        m_MouseSensitivity = 2f;
     }
 
     public void GoToScene(string Scene)
