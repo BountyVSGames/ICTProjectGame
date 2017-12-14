@@ -117,9 +117,9 @@ public class S_CameraFollowsMouse : MonoBehaviour
 
                             Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-                            for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
+                            for (int i = 0; i < Component.GetComponents<BoxCollider>().Length; i++)
                             {
-                                BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
+                                BoxCollider ComponentBoxCollider = Component.GetComponents<BoxCollider>()[i];
 
                                 if (!ComponentBoxCollider.isTrigger)
                                 {
