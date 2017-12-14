@@ -4,41 +4,44 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 
-public class SceneSwicher : Editor
+namespace EditorScripts
 {
-    [MenuItem("Custom Tools/Go to Main Menu")]
-    static void GoToMenu()
+    public class SceneSwicher : Editor
     {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        [MenuItem("Scene Switcher/Go to Main Menu")]
+        static void GoToMenu()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/MainMenu.unity");
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene("Assets/Scenes/MainMenu.unity");
+            }
         }
-    }
 
-    [MenuItem("Custom Tools/Go to Main Game Scene")]
-    static void GoToGame()
-    {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        [MenuItem("Scene Switcher/Go to Main Game Scene")]
+        static void GoToGame()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/Game.unity");
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene("Assets/Scenes/Game.unity");
+            }
         }
-    }
 
-    [MenuItem("Custom Tools/Go to Game Over Scene")]
-    static void GoToGameOverScene()
-    {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        [MenuItem("Scene Switcher/Go to Game Over Scene")]
+        static void GoToGameOverScene()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/GameOver.unity");
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene("Assets/Scenes/GameOver.unity");
+            }
         }
-    }
 
-    [MenuItem("Custom Tools/Go to Test Scene")]
-    static void GoToPrefabTestScene()
-    {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        [MenuItem("Scene Switcher/Go to Test Scene")]
+        static void GoToPrefabTestScene()
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/Test.unity");
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene("Assets/Scenes/Test.unity");
+            }
         }
     }
 }
