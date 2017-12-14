@@ -20,3 +20,4 @@ public class S_UIManager : MonoBehaviour
         m_GameManagerScript.QuitGame();
     }
 }
+    

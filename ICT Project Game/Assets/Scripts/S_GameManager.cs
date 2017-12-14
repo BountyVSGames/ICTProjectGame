@@ -13,7 +13,7 @@ public class S_GameManager : MonoBehaviour
     }
 
     private e_GameState m_GameState;
-
+    [SerializeField]
     private float m_MouseSensitivity;
 
     public float G_MouseSensitivity
@@ -29,10 +29,7 @@ public class S_GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-    }
 
-    void Start()
-    {
         m_GameState = e_GameState.menu;
 
         m_MouseSensitivity = 2f;

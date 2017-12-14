@@ -6,6 +6,9 @@ public class S_PcComponent : MonoBehaviour
 {
     private S_GameManager m_GameManagerScript;
 
+    private Bounds m_Bounds;
+    private BoxCollider m_Collider;
+
     [SerializeField]
     private bool m_PickedUp;
     private float m_MouseSensitivity;
@@ -21,10 +24,22 @@ public class S_PcComponent : MonoBehaviour
         m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
 
         m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
+
+        for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
+        {
+            BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
+            if(!ComponentBoxCollider.isTrigger)
+            {
+                m_Collider = ComponentBoxCollider;
+                break;
+            }
+        }
     }
 
     void Update()
     {
+        RayCast();
+
         if(m_PickedUp && Input.GetMouseButton(1))
         {
             Debug.Log("FF");
@@ -36,13 +51,17 @@ public class S_PcComponent : MonoBehaviour
         }
     }
 
+    void RayCast()
+    {
+
+    }
+
     void OnTriggerStay(Collider Collide)
     {
-        Debug.Log("TEST123");
-
-        if (Collide.name == (this.name + "_Holder"))
+        if(Collide.gameObject != this.gameObject && Collide.name == (this.name + "_Holder"))
         {
             Debug.Log("TEST1234");
+
         }
     }
 }

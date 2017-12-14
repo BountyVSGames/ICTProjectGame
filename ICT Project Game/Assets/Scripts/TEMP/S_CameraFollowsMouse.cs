@@ -15,6 +15,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_RotateLeftRight;
     private float m_RotateUpDown;
     private float m_RotateY;
+    [SerializeField]
     private float m_MouseSensitivity;
     private float m_CameraRange;
     private float m_VerticalRotation;
@@ -99,36 +100,46 @@ public class S_CameraFollowsMouse : MonoBehaviour
     {
         if(m_HoldingComponent == null)
         {
-            //Initializing Variable's
-            RaycastHit hit;
-            Vector3 RayCastStartPosition = new Vector3(transform.position.x, transform.position.y + m_RayCastHeight, transform.position.z);
+                //Initializing Variable's
+                RaycastHit hit;
+                Vector3 RayCastStartPosition = new Vector3(transform.position.x, transform.position.y + m_RayCastHeight, transform.position.z);
 
-            //Draw The Ray For Debugging
-            Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
-            //RayCast Hit
-            if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f))
-            {
-                switch (hit.collider.tag)
+                //Draw The Ray For Debugging
+                Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
+                //RayCast Hit
+                if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f))
                 {
-                    case "Pickable":
-                        GameObject Component = hit.collider.gameObject;
-                        S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
+                    switch (hit.collider.tag)
+                    {
+                        case "Pickable":
+                            GameObject Component = hit.collider.gameObject;
+                            S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
 
-                        Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                        Component.GetComponent<BoxCollider>().enabled = false;
+                            Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
-                        ComponentScript.GS_PickedUp = true;
+                            for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
+                            {
+                                BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
 
-                        Component.transform.parent = m_ComponentHolder.transform;
+                                if (!ComponentBoxCollider.isTrigger)
+                                {
+                                    ComponentBoxCollider.enabled = false;
+                                    break;
+                                }
+                            }
 
-                        Component.transform.localPosition = Vector3.zero;
-                        Component.transform.localEulerAngles = Vector3.zero;
+                            ComponentScript.GS_PickedUp = true;
 
-                        m_HoldingComponent = Component;
-                        m_CameraRange = 30f;
-                        break;
+                            Component.transform.parent = m_ComponentHolder.transform;
+
+                            Component.transform.localPosition = Vector3.zero;
+                            Component.transform.localEulerAngles = Vector3.zero;
+
+                            m_HoldingComponent = Component;
+                            m_CameraRange = 30f;
+                            break;
+                    }
                 }
-            }
         }
         else if(m_HoldingComponent != null)
         {
