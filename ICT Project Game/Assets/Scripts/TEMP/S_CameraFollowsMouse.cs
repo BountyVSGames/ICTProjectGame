@@ -28,6 +28,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     //Other Variables
     private bool m_ShowMouse;
     private GameObject m_HoldingComponent;
+    private Vector3 m_PositionHolder;
 
     //Serialized Variable's
     [Header("Developer stuff. Do not touch")]
@@ -107,39 +108,37 @@ public class S_CameraFollowsMouse : MonoBehaviour
                 //Draw The Ray For Debugging
                 Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
                 //RayCast Hit
-                if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f))
+                if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f) && hit.collider.GetComponent<S_PcComponent>() != null)
                 {
-                    switch (hit.collider.tag)
+                    GameObject Component = hit.collider.gameObject;
+                    S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
+
+                    Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+                    for (int i = 0; i < Component.GetComponents<BoxCollider>().Length; i++)
                     {
-                        case "Pickable":
-                            GameObject Component = hit.collider.gameObject;
-                            S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
+                        BoxCollider ComponentBoxCollider = Component.GetComponents<BoxCollider>()[i];
 
-                            Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-                            for (int i = 0; i < Component.GetComponents<BoxCollider>().Length; i++)
-                            {
-                                BoxCollider ComponentBoxCollider = Component.GetComponents<BoxCollider>()[i];
-
-                                if (!ComponentBoxCollider.isTrigger)
-                                {
-                                    ComponentBoxCollider.enabled = false;
-                                    break;
-                                }
-                            }
-
-                            ComponentScript.GS_PickedUp = true;
-
-                            Component.transform.parent = m_ComponentHolder.transform;
-
-                            Component.transform.localPosition = Vector3.zero;
-                            Component.transform.localEulerAngles = Vector3.zero;
-
-                            m_HoldingComponent = Component;
-                            m_CameraRange = 30f;
+                        if (!ComponentBoxCollider.isTrigger)
+                        {
+                            ComponentBoxCollider.enabled = false;
                             break;
+                        }
                     }
-                }
+
+                    m_PositionHolder = m_ComponentHolder.transform.localPosition;
+                    m_ComponentHolder.transform.localPosition += new Vector3(0, 0, ((Component.transform.localScale.x + Component.transform.localScale.y) / 2));
+
+                    ComponentScript.GS_PickedUp = true;
+
+                    Component.transform.parent = m_ComponentHolder.transform;
+
+                    Component.transform.localPosition = Vector3.zero;
+                    Component.transform.localEulerAngles = Vector3.zero;
+
+                    m_HoldingComponent = Component;
+                    m_CameraRange = 30f;
+            }
         }
         else if(m_HoldingComponent != null)
         {
@@ -149,7 +148,21 @@ public class S_CameraFollowsMouse : MonoBehaviour
             m_HoldingComponent.transform.parent = null;
 
             m_HoldingComponent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+            for (int i = 0; i < m_HoldingComponent.GetComponents<BoxCollider>().Length; i++)
+            {
+                BoxCollider ComponentBoxCollider = m_HoldingComponent.GetComponents<BoxCollider>()[i];
+
+                if (!ComponentBoxCollider.isTrigger)
+                {
+                    ComponentBoxCollider.enabled = false;
+                    break;
+                }
+            }
+
             m_HoldingComponent.GetComponent<BoxCollider>().enabled = true;
+
+            //m_HoldingComponent.transform.localPosition = m_PositionHolder;
 
             m_HoldingComponent = null;
             m_CameraRange = 50f;

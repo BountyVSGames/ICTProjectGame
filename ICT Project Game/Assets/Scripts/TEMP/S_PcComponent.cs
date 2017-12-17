@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class S_PcComponent : MonoBehaviour
 {
+    [SerializeField]
+    private e_Components m_Component;
+
     private S_GameManager m_GameManagerScript;
 
     private Bounds m_Bounds;
@@ -42,8 +47,6 @@ public class S_PcComponent : MonoBehaviour
 
         if(m_PickedUp && Input.GetMouseButton(1))
         {
-            Debug.Log("FF");
-
             float MouseX = Input.GetAxis("Mouse X") * (m_MouseSensitivity * 70);
             float MouseY = Input.GetAxis("Mouse Y") * (m_MouseSensitivity * 70);
 
@@ -58,10 +61,11 @@ public class S_PcComponent : MonoBehaviour
 
     void OnTriggerStay(Collider Collide)
     {
-        if(Collide.gameObject != this.gameObject && Collide.name == (this.name + "_Holder"))
+        if(Collide.gameObject != this.gameObject && Collide.GetComponent<S_PcComponentHolder>() != null && Collide.GetComponent<S_PcComponentHolder>().G_Component == m_Component)
         {
-            Debug.Log("TEST1234");
+            S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
 
+            PcComponentHolderScript.G_MeshRenderer.enabled = true;
         }
     }
 }
