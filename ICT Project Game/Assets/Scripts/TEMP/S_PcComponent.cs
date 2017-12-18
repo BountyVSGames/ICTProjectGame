@@ -6,14 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class S_PcComponent : MonoBehaviour
 {
+    [Header("Component Selecting")]
+    [Tooltip("Select the component this has to be here")]
     [SerializeField]
     private e_Components m_Component;
 
     private S_GameManager m_GameManagerScript;
 
-    private Bounds m_Bounds;
-    private BoxCollider m_Collider;
-
+    [Space(5)]
+    [Header("Debug Information:")]
     [SerializeField]
     private bool m_PickedUp;
     private float m_MouseSensitivity;
@@ -29,16 +30,6 @@ public class S_PcComponent : MonoBehaviour
         m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
 
         m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
-
-        for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
-        {
-            BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
-            if(!ComponentBoxCollider.isTrigger)
-            {
-                m_Collider = ComponentBoxCollider;
-                break;
-            }
-        }
     }
 
     void Update()
@@ -65,7 +56,21 @@ public class S_PcComponent : MonoBehaviour
         {
             S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
 
-            PcComponentHolderScript.G_MeshRenderer.enabled = true;
+            if(!PcComponentHolderScript.G_MeshRenderer.enabled)
+            {
+                PcComponentHolderScript.G_MeshRenderer.enabled = true;
+                PcComponentHolderScript.GetComponent<MeshFilter>().mesh = GetComponent<MeshFilter>().mesh;
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider Collide)
+    {
+        if(Collide.gameObject != this.gameObject && Collide.GetComponent<S_PcComponentHolder>() != null)
+        {
+            S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
+
+            PcComponentHolderScript.G_MeshRenderer.enabled = false;
         }
     }
 }

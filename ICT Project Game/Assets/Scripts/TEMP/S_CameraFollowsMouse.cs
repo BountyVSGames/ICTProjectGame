@@ -13,25 +13,26 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_MoveFoward;
     private float m_TurnAround;
     private float m_RotateLeftRight;
-    private float m_RotateUpDown;
-    private float m_RotateY;
-    [SerializeField]
-    private float m_MouseSensitivity;
     private float m_CameraRange;
     private float m_VerticalRotation;
+
+    //Serialized Movement Variable's
+    private Vector3 m_Move;
     [SerializeField]
     private float m_Speed;
-    private Vector3 m_Move;
+    [SerializeField]
+    private float m_MouseSensitivity;
 
+    //Game Manager Script
     private S_GameManager m_GameManagerScript;
 
     //Other Variables
-    private bool m_ShowMouse;
     private GameObject m_HoldingComponent;
     private Vector3 m_PositionHolder;
 
     //Serialized Variable's
-    [Header("Developer stuff. Do not touch")]
+    [Space(5)]
+    [Header("Debug Information:")]
     [SerializeField]
     private float m_RayCastHeight;
     [SerializeField]
@@ -40,8 +41,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
     void Start()
     {
         m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
-
-        m_ShowMouse = false;
 
         m_CameraRange = 50.0f;
         m_VerticalRotation = 0;
@@ -66,12 +65,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
         }
 
         transform.position += m_Move * m_Speed * Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            m_ShowMouse = !m_ShowMouse;
-        }
-        Cursor.visible = m_ShowMouse;
     }
 
     //Movement Voids
@@ -95,6 +88,10 @@ public class S_CameraFollowsMouse : MonoBehaviour
         //Keeps the rotation in a certain range
         m_VerticalRotation = Mathf.Clamp(m_VerticalRotation, -m_CameraRange, m_CameraRange);
         Camera.main.transform.localRotation = Quaternion.Euler(m_VerticalRotation, 0, 0);
+    }
+    void ComponentScrolling()
+    {
+
     }
 
     void ComponentHolding()
@@ -161,8 +158,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
             }
 
             m_HoldingComponent.GetComponent<BoxCollider>().enabled = true;
-
-            //m_HoldingComponent.transform.localPosition = m_PositionHolder;
 
             m_HoldingComponent = null;
             m_CameraRange = 50f;

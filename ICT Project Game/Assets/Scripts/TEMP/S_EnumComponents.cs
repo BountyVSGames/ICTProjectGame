@@ -2,10 +2,10 @@
 {
     Motherboard = 0,
     Ram,
-    Graphics_Card,
-    Hard_Drive,
+    GraphicsCard,
+    HardDrive,
     Cpu,
-    Cpu_Fan,
+    CpuFan,
     Fan,
-    Power_Supply
+    PowerSupply
 }
