@@ -22,6 +22,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_Speed;
     [SerializeField]
     private float m_MouseSensitivity;
+    private float m_Scrolling;
 
     //Game Manager Script
     private S_GameManager m_GameManagerScript;
@@ -45,6 +46,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
         m_CameraRange = 50.0f;
         m_VerticalRotation = 0;
         m_Speed = 4f;
+        m_Scrolling = 0;
 
         m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
     }
@@ -62,6 +64,11 @@ public class S_CameraFollowsMouse : MonoBehaviour
         if((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
         {
             ComponentHolding();
+        }
+
+        if(m_HoldingComponent != null)
+        {
+            ComponentScrolling();
         }
 
         transform.position += m_Move * m_Speed * Time.deltaTime;
@@ -91,7 +98,11 @@ public class S_CameraFollowsMouse : MonoBehaviour
     }
     void ComponentScrolling()
     {
+        m_Scrolling += Input.GetAxis("Mouse ScrollWheel");
 
+        m_Scrolling = Mathf.Clamp(m_Scrolling, -.5f, .75f);
+
+        m_HoldingComponent.transform.localPosition = Vector3.Lerp(m_HoldingComponent.transform.localPosition, new Vector3(0, 0, m_Scrolling), .5f);
     }
 
     void ComponentHolding()
@@ -130,8 +141,9 @@ public class S_CameraFollowsMouse : MonoBehaviour
 
                     Component.transform.parent = m_ComponentHolder.transform;
 
+                    m_Scrolling = Component.transform.localPosition.z;
+
                     Component.transform.localPosition = Vector3.zero;
-                    Component.transform.localEulerAngles = Vector3.zero;
 
                     m_HoldingComponent = Component;
                     m_CameraRange = 30f;

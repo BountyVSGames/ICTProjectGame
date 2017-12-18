@@ -9,6 +9,9 @@ public class S_PcComponentHolder : MonoBehaviour
     [SerializeField]
     private e_Components m_Component;
 
+    [SerializeField]
+    private S_PcComponent m_PcComponentScript;
+
     private MeshRenderer m_MeshRenderer;
 
     public e_Components G_Component
@@ -19,6 +22,11 @@ public class S_PcComponentHolder : MonoBehaviour
     {
         get { return m_MeshRenderer; }
     }
+    public S_PcComponent S_PcComponentScript
+    {
+        set { m_PcComponentScript = value; }
+    }
+
 
 
     void Start()
@@ -26,5 +34,13 @@ public class S_PcComponentHolder : MonoBehaviour
         m_MeshRenderer = GetComponent<MeshRenderer>();
 
         m_MeshRenderer.enabled = false;
+    }
+
+    void Update()
+    {
+       if(m_MeshRenderer.enabled && !m_PcComponentScript.GS_PickedUp)
+       {
+            m_MeshRenderer.enabled = false;
+       }
     }
 }

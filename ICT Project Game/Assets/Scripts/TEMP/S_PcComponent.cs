@@ -34,8 +34,6 @@ public class S_PcComponent : MonoBehaviour
 
     void Update()
     {
-        RayCast();
-
         if(m_PickedUp && Input.GetMouseButton(1))
         {
             float MouseX = Input.GetAxis("Mouse X") * (m_MouseSensitivity * 70);
@@ -43,11 +41,6 @@ public class S_PcComponent : MonoBehaviour
 
             transform.localEulerAngles += new Vector3(MouseY, -MouseX, 0) * Time.deltaTime;
         }
-    }
-
-    void RayCast()
-    {
-
     }
 
     void OnTriggerStay(Collider Collide)
@@ -60,6 +53,10 @@ public class S_PcComponent : MonoBehaviour
             {
                 PcComponentHolderScript.G_MeshRenderer.enabled = true;
                 PcComponentHolderScript.GetComponent<MeshFilter>().mesh = GetComponent<MeshFilter>().mesh;
+
+                PcComponentHolderScript.transform.localScale = transform.localScale;
+
+                PcComponentHolderScript.S_PcComponentScript = this;
             }
         }
     }

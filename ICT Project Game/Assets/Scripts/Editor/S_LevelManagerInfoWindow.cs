@@ -18,12 +18,6 @@ namespace EditorScripts
 
         void OnGUI()
         {
-            UnityEngine.GUILayout.Label("Project Planning:", EditorStyles.boldLabel);
-            if (UnityEngine.GUILayout.Button("Press here"))
-            {
-                UnityEngine.Application.OpenURL("https://trello.com/b/qMshvgU0/planning");
-            }
-
             UnityEngine.GUILayout.Width(100);
             UnityEngine.GUILayout.Height(100);
 
