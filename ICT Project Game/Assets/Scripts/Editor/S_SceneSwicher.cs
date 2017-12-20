@@ -35,12 +35,12 @@ namespace EditorScripts
             }
         }
 
-        [MenuItem("Scene Switcher/Go to Test Scene")]
+        [MenuItem("Scene Switcher/Go to Caspar Scene")]
         static void GoToPrefabTestScene()
         {
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             {
-                EditorSceneManager.OpenScene("Assets/Scenes/Test.unity");
+                EditorSceneManager.OpenScene("Assets/Scenes/_Caspar.unity");
             }
         }
     }
