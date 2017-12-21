@@ -49,9 +49,13 @@ public class S_PcComponent : MonoBehaviour
 
             m_PcComponentHolderActive = true;
 
-            if (!PcComponentHolderScript.G_MeshRenderer.enabled)
+            if (!PcComponentHolderScript.G_MeshRenderer[0].enabled)
             {
-                PcComponentHolderScript.G_MeshRenderer.enabled = true;
+                for (int i = 0; i < PcComponentHolderScript.G_MeshRenderer.Count; i++)
+                {
+                    PcComponentHolderScript.G_MeshRenderer[i].enabled = true;
+                }
+
                 PcComponentHolderScript.GetComponent<MeshFilter>().mesh = GetComponent<MeshFilter>().mesh;
 
                 PcComponentHolderScript.transform.localScale = transform.localScale;
@@ -72,7 +76,10 @@ public class S_PcComponent : MonoBehaviour
         {
             S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
 
-            PcComponentHolderScript.G_MeshRenderer.enabled = false;
+            for (int i = 0; i < PcComponentHolderScript.G_MeshRenderer.Count; i++)
+            {
+                PcComponentHolderScript.G_MeshRenderer[i].enabled = false;
+            }
 
             m_PcComponentHolderActive = false;
         }
