@@ -29,22 +29,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1101873624379268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4706598141386010}
-  - component: {fileID: 108194678075962290}
-  m_Layer: 0
-  m_Name: Point light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1115788545863206
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,24 +114,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1294693962124464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.1718059, z: -0.3466539}
+  m_LocalPosition: {x: -0.005, y: -2.55, z: 0.021}
   m_LocalScale: {x: 1.5778843, y: 4.0368133, z: 0.3948222}
   m_Children: []
   m_Father: {fileID: 4791733684714346}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4706598141386010
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101873624379268}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.260616, z: 0.40390313}
-  m_LocalScale: {x: 1.5778843, y: 4.0368133, z: 0.3948222}
-  m_Children: []
-  m_Father: {fileID: 4791733684714346}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4791733684714346
 Transform:
@@ -155,17 +126,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1039404248569722}
-  m_LocalRotation: {x: -0, y: -0.0018509064, z: -0, w: 0.99999833}
-  m_LocalPosition: {x: 0.019, y: 3.891, z: 0.0006284117}
-  m_LocalScale: {x: 0.63376004, y: 0.24772015, z: 2.5327854}
+  m_LocalRotation: {x: -0, y: -0.9999999, z: -0, w: -0.0005315542}
+  m_LocalPosition: {x: -5.0301747, y: 3.4909992, z: 5.0099916}
+  m_LocalScale: {x: 0.6337607, y: 0.24771999, z: 2.5327828}
   m_Children:
   - {fileID: 4055040344211566}
   - {fileID: 4429095768453242}
   - {fileID: 4446979121437774}
-  - {fileID: 4706598141386010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -0.21200001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.06099, z: 0}
 --- !u!23 &23084408219333426
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -301,42 +271,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!108 &108194678075962290
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101873624379268}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 0.9637931, b: 0.8455882, a: 1}
-  m_Intensity: 2
-  m_Range: 7
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!108 &108471980703696604
 Light:
   m_ObjectHideFlags: 1
@@ -346,19 +280,19 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0.9637931, b: 0.8455882, a: 1}
-  m_Intensity: 2
-  m_Range: 7
+  m_Color: {r: 1, g: 0.9346856, b: 0.7941176, a: 1}
+  m_Intensity: 0.7
+  m_Range: 25
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Strength: 0.7
+    m_Bias: 0
+    m_NormalBias: 0
+    m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}

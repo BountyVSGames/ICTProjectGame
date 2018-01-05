@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: 0d0976220d8469b44ac55f1fa1bf0368
+timeCreated: 1514576940
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Beam
+    100002: Beam02
+    100004: Door
+    100006: Door_Glass
+    100008: Door_GlassFrame
+    100010: Door_WallFrame
+    100012: Lightswitch
+    100014: Lightswitch_Button
+    100016: //RootNode
+    100018: Room_Ceiling
+    100020: Room_Floor
+    100022: Walls
+    100024: Walls_Corners
+    100026: Walls_Outside
+    100028: Window
+    100030: Window_Beams
+    100032: Window_Glass
+    100034: Window_Plank
+    400000: Beam
+    400002: Beam02
+    400004: Door
+    400006: Door_Glass
+    400008: Door_GlassFrame
+    400010: Door_WallFrame
+    400012: Lightswitch
+    400014: Lightswitch_Button
+    400016: //RootNode
+    400018: Room_Ceiling
+    400020: Room_Floor
+    400022: Walls
+    400024: Walls_Corners
+    400026: Walls_Outside
+    400028: Window
+    400030: Window_Beams
+    400032: Window_Glass
+    400034: Window_Plank
+    2300000: Beam
+    2300002: Beam02
+    2300004: Door
+    2300006: Door_Glass
+    2300008: Door_GlassFrame
+    2300010: Door_WallFrame
+    2300012: Lightswitch
+    2300014: Lightswitch_Button
+    2300016: Room_Ceiling
+    2300018: Room_Floor
+    2300020: Walls
+    2300022: Walls_Corners
+    2300024: Walls_Outside
+    2300026: Window
+    2300028: Window_Beams
+    2300030: Window_Glass
+    2300032: Window_Plank
+    3300000: Beam
+    3300002: Beam02
+    3300004: Door
+    3300006: Door_Glass
+    3300008: Door_GlassFrame
+    3300010: Door_WallFrame
+    3300012: Lightswitch
+    3300014: Lightswitch_Button
+    3300016: Room_Ceiling
+    3300018: Room_Floor
+    3300020: Walls
+    3300022: Walls_Corners
+    3300024: Walls_Outside
+    3300026: Window
+    3300028: Window_Beams
+    3300030: Window_Glass
+    3300032: Window_Plank
+    4300000: Beam
+    4300002: Beam02
+    4300004: Door
+    4300006: Door_Glass
+    4300008: Door_WallFrame
+    4300010: Door_GlassFrame
+    4300012: Window
+    4300014: Window_Beams
+    4300016: Window_Glass
+    4300018: Window_Plank
+    4300020: Walls
+    4300022: Walls_Corners
+    4300024: Walls_Outside
+    4300026: Room_Floor
+    4300028: Lightswitch
+    4300030: Lightswitch_Button
+    4300032: Room_Ceiling
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 0f61357423da2424b9f27ca4de51dcad, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
