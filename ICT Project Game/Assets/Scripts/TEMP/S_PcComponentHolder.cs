@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
 public class S_PcComponentHolder : MonoBehaviour
 {
     [Header("Component Selecting")]
@@ -12,15 +15,20 @@ public class S_PcComponentHolder : MonoBehaviour
     [SerializeField]
     private S_PcComponent m_PcComponentScript;
 
-    private MeshRenderer m_MeshRenderer;
+    [Space(5)]
+    [Header("Debug Information")]
+    [SerializeField]
+    private Material m_SelectedMaterial;
+
+    private List<MeshRenderer> m_MeshRenderers;
 
     public e_Components G_Component
     {
         get { return m_Component; }
     }
-    public MeshRenderer G_MeshRenderer
+    public List<MeshRenderer> G_MeshRenderer
     {
-        get { return m_MeshRenderer; }
+        get { return m_MeshRenderers; }
     }
     public S_PcComponent S_PcComponentScript
     {
@@ -29,18 +37,33 @@ public class S_PcComponentHolder : MonoBehaviour
 
 
 
+    void Awake()
+    {
+        m_MeshRenderers = new List<MeshRenderer>();
+    }
+
     void Start()
     {
-        m_MeshRenderer = GetComponent<MeshRenderer>();
+        m_MeshRenderers.Add(GetComponent<MeshRenderer>());
 
-        m_MeshRenderer.enabled = false;
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            m_MeshRenderers.Add(transform.GetChild(i).GetComponent<MeshRenderer>());
+            if (m_SelectedMaterial != null)
+            {
+                m_MeshRenderers[i].material = m_SelectedMaterial;
+            }
+        }
     }
 
     void Update()
     {
-       if(m_MeshRenderer.enabled && !m_PcComponentScript.GS_PickedUp)
+       if(m_PcComponentScript == null || (m_PcComponentScript != null && m_MeshRenderers[0].enabled && !m_PcComponentScript.GS_PickedUp))
        {
-            m_MeshRenderer.enabled = false;
-       }
+            for (int i = 0; i < m_MeshRenderers.Count; i++)
+            {
+                m_MeshRenderers[i].enabled = false;
+            }
+        }
     }
 }

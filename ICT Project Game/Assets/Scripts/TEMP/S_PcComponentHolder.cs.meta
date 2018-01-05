@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: 258888343590de34cbe694713191f354
-timeCreated: 1513261288
+timeCreated: 1513938970
 licenseType: Pro
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - m_PcComponentScript: {instanceID: 0}
+  - m_SelectedMaterial: {fileID: 2100000, guid: 744b70215e69a4f40aaa19ded6f4bf64,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
