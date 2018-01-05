@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(BoxCollider))]
 public class S_PcComponentHolder : MonoBehaviour
 {
     [Header("Component Selecting")]
@@ -11,6 +14,11 @@ public class S_PcComponentHolder : MonoBehaviour
 
     [SerializeField]
     private S_PcComponent m_PcComponentScript;
+
+    [Space(5)]
+    [Header("Debug Information")]
+    [SerializeField]
+    private Material m_SelectedMaterial;
 
     private List<MeshRenderer> m_MeshRenderers;
 
@@ -41,6 +49,10 @@ public class S_PcComponentHolder : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             m_MeshRenderers.Add(transform.GetChild(i).GetComponent<MeshRenderer>());
+            if (m_SelectedMaterial != null)
+            {
+                m_MeshRenderers[i].material = m_SelectedMaterial;
+            }
         }
     }
 

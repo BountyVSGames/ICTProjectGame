@@ -40,6 +40,15 @@ public class S_PcComponent : MonoBehaviour
         m_PcComponentHolderActive = false;
     }
 
+    public void Connect(GameObject GameObjectToPlugWith)
+    {
+
+    }
+
+    public void Disconnect()
+    {
+        
+    }
 
     void OnTriggerStay(Collider Collide)
     {

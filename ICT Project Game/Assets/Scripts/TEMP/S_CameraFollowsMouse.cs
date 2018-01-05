@@ -30,7 +30,16 @@ public class S_CameraFollowsMouse : MonoBehaviour
     //Other Variables
     private GameObject m_HoldingComponent;
     private S_PcComponent m_PcComponentScript;
-    private Vector3 m_PositionHolder;
+
+    public S_PcComponent S_PcComponentScript
+    {
+        set { m_PcComponentScript = value; }
+    }
+    public GameObject S_HoldingComponent
+    {
+        set { m_HoldingComponent = value; }
+    }
+
 
     //Serialized Variable's
     [Space(5)]
@@ -65,13 +74,16 @@ public class S_CameraFollowsMouse : MonoBehaviour
         {
             ComponentRotation();
         }
+
         //Get the movement using keyboard and controller
         Movement();
+
         //Create the raycast and look for a hit on a door
-        if((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && !(m_PcComponentScript != null && m_PcComponentScript.G_PcComponentHolderActive))
+        if((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && !(m_HoldingComponent != null && m_PcComponentScript.G_PcComponentHolderActive))
         {
             ComponentHolding();
         }
+
         //Allowing Scrolling if the component is attached to the 'arm'
         if(m_HoldingComponent != null)
         {
@@ -148,8 +160,8 @@ public class S_CameraFollowsMouse : MonoBehaviour
         public void Connect(GameObject Component)
         {
             S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
-
             m_PcComponentScript = ComponentScript;
+            Component.Connect(this.gameObject);
 
             Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -164,8 +176,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
                 }
             }
 
-            m_PositionHolder = m_ComponentHolder.transform.localPosition;
-            m_ComponentHolder.transform.localPosition += new Vector3(0, 0, ((Component.transform.localScale.x + Component.transform.localScale.y) / 2));
+            m_ComponentHolder.transform.localPosition += new Vector3(0, 0, ((Component.transform.localScale.x + Component.transform.localScale.y + Component.transform.localScale.z) / 2));
 
             ComponentScript.GS_PickedUp = true;
 

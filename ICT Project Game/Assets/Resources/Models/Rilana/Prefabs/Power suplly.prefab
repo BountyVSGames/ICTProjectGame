@@ -38,10 +38,6 @@ GameObject:
   - component: {fileID: 4019850462316576}
   - component: {fileID: 33282027224004246}
   - component: {fileID: 23893074064064876}
-  - component: {fileID: 54145208918355450}
-  - component: {fileID: 65236046420579342}
-  - component: {fileID: 65075224432411070}
-  - component: {fileID: 114661053267879202}
   m_Layer: 0
   m_Name: Power suplly
   m_TagString: Untagged
@@ -73,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606969907230516}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.5547126, y: 1.68, z: 16.891052}
+  m_LocalPosition: {x: -0.01551342, y: -0.30318028, z: -0.33060393}
   m_LocalScale: {x: 0.9997796, y: 1.0137827, z: 0.9845214}
   m_Children:
   - {fileID: 4065046548629194}
@@ -230,55 +226,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804842442048212}
   m_Mesh: {fileID: 4300010, guid: 19c80aa64f7f65b4591b7941196daad2, type: 3}
---- !u!54 &54145208918355450
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606969907230516}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &65075224432411070
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606969907230516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.43207362, y: 0.28218475, z: 0.1740168}
-  m_Center: {x: 0.06454967, y: -0.0000046640635, z: -0.032768797}
---- !u!65 &65236046420579342
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606969907230516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.43207362, y: 0.28218475, z: 0.1740168}
-  m_Center: {x: 0.06454967, y: -0.0000046640635, z: -0.032768797}
---- !u!114 &114661053267879202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1606969907230516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02e91090cb9615749b2045231e058a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Component: 0
-  m_PickedUp: 0
