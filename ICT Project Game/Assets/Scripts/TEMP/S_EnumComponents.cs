@@ -4,8 +4,7 @@
     Ram,
     GraphicsCard,
     HardDrive,
-    Cpu,
-    CpuFan,
-    Fan,
+    Processor,
+    ProcessorCooling,
     PowerSupply
 }

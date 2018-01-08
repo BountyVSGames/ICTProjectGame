@@ -31,6 +31,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private GameObject m_HoldingComponent;
     private S_PcComponent m_PcComponentScript;
 
+    //Get Setters
     public S_PcComponent S_PcComponentScript
     {
         set { m_PcComponentScript = value; }
@@ -116,6 +117,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
             Camera.main.transform.localRotation = Quaternion.Euler(m_VerticalRotation, 0, 0);
         }
     #endregion
+
     #region Component Movement
     void ComponentScrolling()
         {
@@ -133,7 +135,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
             m_ComponentHolder.transform.localEulerAngles += transform.localRotation * new Vector3(MouseY, -MouseX, 0) * Time.deltaTime;
         }
     #endregion
-
     #region Component Holding
     void ComponentHolding()
         {
@@ -161,60 +162,24 @@ public class S_CameraFollowsMouse : MonoBehaviour
         {
             S_PcComponent ComponentScript = Component.GetComponent<S_PcComponent>();
             m_PcComponentScript = ComponentScript;
-            Component.Connect(this.gameObject);
 
-            Component.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
-            for (int i = 0; i < Component.GetComponents<BoxCollider>().Length; i++)
-            {
-                BoxCollider ComponentBoxCollider = Component.GetComponents<BoxCollider>()[i];
-
-                if (!ComponentBoxCollider.isTrigger)
-                {
-                    ComponentBoxCollider.enabled = false;
-                    break;
-                }
-            }
-
-            m_ComponentHolder.transform.localPosition += new Vector3(0, 0, ((Component.transform.localScale.x + Component.transform.localScale.y + Component.transform.localScale.z) / 2));
-
-            ComponentScript.GS_PickedUp = true;
-
-            Component.transform.parent = m_ComponentHolder.transform;
-
-            m_Scrolling = Component.transform.localPosition.z;
-
-            Component.transform.localPosition = Vector3.zero;
+            ComponentScript.Connect(this.gameObject, m_ComponentHolder, this);
 
             m_HoldingComponent = Component;
+
             m_CameraRange = 30f;
-        }
+            m_Scrolling = Component.transform.localPosition.z;
+    }
 
         public void Disconnect()
         {
             S_PcComponent ComponentScript = m_HoldingComponent.GetComponent<S_PcComponent>();
-            ComponentScript.GS_PickedUp = false;
+
+            ComponentScript.Disconnect();
 
             m_PcComponentScript = null;
-
-            m_HoldingComponent.transform.parent = null;
-
-            m_HoldingComponent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-
-            for (int i = 0; i < m_HoldingComponent.GetComponents<BoxCollider>().Length; i++)
-            {
-                BoxCollider ComponentBoxCollider = m_HoldingComponent.GetComponents<BoxCollider>()[i];
-
-                if (!ComponentBoxCollider.isTrigger)
-                {
-                    ComponentBoxCollider.enabled = false;
-                    break;
-                }
-            }
-
-            m_HoldingComponent.GetComponent<BoxCollider>().enabled = true;
-
             m_HoldingComponent = null;
+
             m_CameraRange = 50f;
         }
     #endregion

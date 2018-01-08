@@ -20,50 +20,31 @@ public class S_PcComponentHolder : MonoBehaviour
     [SerializeField]
     private Material m_SelectedMaterial;
 
-    private List<MeshRenderer> m_MeshRenderers;
+    private MeshRenderer m_MeshRenderer;
 
     public e_Components G_Component
     {
         get { return m_Component; }
     }
-    public List<MeshRenderer> G_MeshRenderer
+    public MeshRenderer G_MeshRenderer
     {
-        get { return m_MeshRenderers; }
+        get { return m_MeshRenderer; }
     }
     public S_PcComponent S_PcComponentScript
     {
         set { m_PcComponentScript = value; }
     }
 
-
-
-    void Awake()
-    {
-        m_MeshRenderers = new List<MeshRenderer>();
-    }
-
     void Start()
     {
-        m_MeshRenderers.Add(GetComponent<MeshRenderer>());
-
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            m_MeshRenderers.Add(transform.GetChild(i).GetComponent<MeshRenderer>());
-            if (m_SelectedMaterial != null)
-            {
-                m_MeshRenderers[i].material = m_SelectedMaterial;
-            }
-        }
+        m_MeshRenderer = GetComponent<MeshRenderer>();
     }
 
     void Update()
     {
-       if(m_PcComponentScript == null || (m_PcComponentScript != null && m_MeshRenderers[0].enabled && !m_PcComponentScript.GS_PickedUp))
+       if(m_PcComponentScript == null || (m_PcComponentScript != null && m_MeshRenderer.enabled && !m_PcComponentScript.G_PickedUp))
        {
-            for (int i = 0; i < m_MeshRenderers.Count; i++)
-            {
-                m_MeshRenderers[i].enabled = false;
-            }
+            m_MeshRenderer.enabled = false;
         }
     }
 }

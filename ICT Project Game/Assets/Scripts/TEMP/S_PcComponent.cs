@@ -12,6 +12,7 @@ public class S_PcComponent : MonoBehaviour
     private e_Components m_Component;
 
     private S_GameManager m_GameManagerScript;
+    private S_CameraFollowsMouse m_PlayerScript;
 
     [Space(5)]
     [Header("Debug Information:")]
@@ -21,10 +22,9 @@ public class S_PcComponent : MonoBehaviour
 
     private float m_MouseSensitivity;
 
-    public bool GS_PickedUp
+    public bool G_PickedUp
     {
         get { return m_PickedUp; }
-        set { m_PickedUp = value; }
     }
     public bool G_PcComponentHolderActive
     {
@@ -40,14 +40,71 @@ public class S_PcComponent : MonoBehaviour
         m_PcComponentHolderActive = false;
     }
 
-    public void Connect(GameObject GameObjectToPlugWith)
+    public void Connect(GameObject GameObjectToPlugWith, GameObject ComponentHolder = null, S_CameraFollowsMouse PlayerScript = null)
     {
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
+        for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
+        {
+            BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
+
+            if (!ComponentBoxCollider.isTrigger)
+            {
+                ComponentBoxCollider.enabled = false;
+                break;
+            }
+        }
+
+        if(ComponentHolder != null && PlayerScript != null)
+        {
+            transform.parent = ComponentHolder.transform;
+            transform.localPosition = Vector3.zero;
+
+            m_PickedUp = true;
+
+            m_PlayerScript = PlayerScript;
+        }
+        else if(ComponentHolder != null && PlayerScript == null)
+        {
+            Debug.LogError("Add Playerscript to the parameters!");
+        }
+        else if(ComponentHolder == null && PlayerScript != null)
+        {
+            Debug.LogError("Add ComponentHolder to the parameters!");
+        }
+        else if(GameObjectToPlugWith != null && m_PlayerScript != null)
+        {
+            transform.parent = GameObjectToPlugWith.transform;
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+            m_PlayerScript.S_HoldingComponent = null;
+            m_PlayerScript.S_PcComponentScript = null;
+
+            m_PlayerScript = null;
+
+            Debug.Log("Test");
+
+            this.enabled = false;
+        }
     }
 
     public void Disconnect()
     {
-        
+        transform.parent = null;
+
+        for (int i = 0; i < GetComponents<BoxCollider>().Length; i++)
+        {
+            BoxCollider ComponentBoxCollider = GetComponents<BoxCollider>()[i];
+
+            if (!ComponentBoxCollider.isTrigger)
+            {
+                ComponentBoxCollider.enabled = true;
+                break;
+            }
+        }
+
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
     }
 
     void OnTriggerStay(Collider Collide)
@@ -58,23 +115,20 @@ public class S_PcComponent : MonoBehaviour
 
             m_PcComponentHolderActive = true;
 
-            if (!PcComponentHolderScript.G_MeshRenderer[0].enabled)
+            if (!Collide.GetComponent<MeshRenderer>().enabled)
             {
-                for (int i = 0; i < PcComponentHolderScript.G_MeshRenderer.Count; i++)
-                {
-                    PcComponentHolderScript.G_MeshRenderer[i].enabled = true;
-                }
-
-                PcComponentHolderScript.GetComponent<MeshFilter>().mesh = GetComponent<MeshFilter>().mesh;
-
-                PcComponentHolderScript.transform.localScale = transform.localScale;
+                Collide.GetComponent<MeshRenderer>().enabled = true;
 
                 PcComponentHolderScript.S_PcComponentScript = this;
             }
 
             if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
+                Collide.GetComponent<MeshRenderer>().enabled = false;
 
+                PcComponentHolderScript.enabled = false;
+
+                Connect(Collide.gameObject);
             }
         }
     }
@@ -85,10 +139,7 @@ public class S_PcComponent : MonoBehaviour
         {
             S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
 
-            for (int i = 0; i < PcComponentHolderScript.G_MeshRenderer.Count; i++)
-            {
-                PcComponentHolderScript.G_MeshRenderer[i].enabled = false;
-            }
+            PcComponentHolderScript.G_MeshRenderer.enabled = false;
 
             m_PcComponentHolderActive = false;
         }
