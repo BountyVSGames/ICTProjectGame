@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,12 +25,18 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_MouseSensitivity;
     private float m_Scrolling;
 
+    private Image m_CrosshairImage;
+    [SerializeField]
+    private Sprite[] m_CrossharImages;
+
     //Game Manager Script
     private S_GameManager m_GameManagerScript;
 
     //Other Variables
     private GameObject m_HoldingComponent;
     private S_PcComponent m_PcComponentScript;
+
+    private Vector3 m_ControllerForce;
 
     //Get Setters
     public S_PcComponent S_PcComponentScript
@@ -40,6 +47,11 @@ public class S_CameraFollowsMouse : MonoBehaviour
     {
         set { m_HoldingComponent = value; }
     }
+    public Vector3 G_ControllerForce
+    {
+        get { return m_ControllerForce; }
+    }
+
 
 
     //Serialized Variable's
@@ -51,51 +63,60 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private GameObject m_ComponentHolder;
 
     //Initializing Variable's
-    void Start()
+    private void Start()
     {
         m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
 
-        m_CameraRange = 50.0f;
+        m_CrosshairImage = GameObject.FindWithTag("Canvas").transform.GetChild(0).GetComponent<Image>();
+
+        m_CameraRange = 60.0f;
         m_VerticalRotation = 0;
-        m_Speed = 4f;
+        m_Speed = 2f;
         m_Scrolling = 0;
 
         m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
+
+        StartCoroutine(CalculateForce());
     }
 
     //Update, runs every frame
-    void Update()
+    private void Update()
     {
-        //Get the rotation of the mouse and controller
-        if(!Input.GetMouseButton(1))
+        //All component holding handling
+        if(m_GameManagerScript.G_GameState == 1)
         {
-            Rotation();
+            //Get the rotation of the mouse and controller
+            if(!Input.GetMouseButton(1))
+            {
+                Rotation();
+            }
+            else
+            {
+                ComponentRotation();
+            }
+
+            //Allowing Scrolling if the component is attached to the 'arm'
+            if (m_HoldingComponent != null)
+            {
+                ComponentScrolling();
+            }
         }
         else
         {
-            ComponentRotation();
+            Rotation();
         }
+
+        //Create the raycast and look for a hit on a door
+        ComponentHolding();
 
         //Get the movement using keyboard and controller
         Movement();
-
-        //Create the raycast and look for a hit on a door
-        if((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && !(m_HoldingComponent != null && m_PcComponentScript.G_PcComponentHolderActive))
-        {
-            ComponentHolding();
-        }
-
-        //Allowing Scrolling if the component is attached to the 'arm'
-        if(m_HoldingComponent != null)
-        {
-            ComponentScrolling();
-        }
         //Let's a move
         transform.position += m_Move * m_Speed * Time.deltaTime;
     }
 
     #region Player Movement
-        void Movement()
+        private void Movement()
         {
             //Instantiating Variable's
             m_MoveFoward = Input.GetAxis("Vertical");
@@ -105,7 +126,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
             m_Move = new Vector3(m_TurnAround, 0, m_MoveFoward);
             m_Move = transform.rotation * m_Move;
         }
-        void Rotation()
+        private void Rotation()
         {
             //Adds the Mouse X speed to rotation for horizontal rotation
             m_RotateLeftRight = Input.GetAxis("Mouse X") * m_MouseSensitivity;
@@ -119,7 +140,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     #endregion
 
     #region Component Movement
-    void ComponentScrolling()
+        private void ComponentScrolling()
         {
             m_Scrolling += Input.GetAxis("Mouse ScrollWheel");
 
@@ -127,7 +148,8 @@ public class S_CameraFollowsMouse : MonoBehaviour
 
             m_ComponentHolder.transform.localPosition = Vector3.Lerp(m_ComponentHolder.transform.localPosition, new Vector3(0, 0, m_Scrolling), .5f);
         }
-        void ComponentRotation()
+
+        private void ComponentRotation()
         {
             float MouseX = Input.GetAxis("Mouse X") * (m_MouseSensitivity * 70);
             float MouseY = Input.GetAxis("Mouse Y") * (m_MouseSensitivity * 70);
@@ -136,25 +158,60 @@ public class S_CameraFollowsMouse : MonoBehaviour
         }
     #endregion
     #region Component Holding
-    void ComponentHolding()
+        private void ComponentHolding()
         {
-            if (m_HoldingComponent == null)
+            if (m_HoldingComponent == null && m_GameManagerScript.G_GameState == 1)
             {
                 //Initializing Variable's
                 RaycastHit hit;
-                Vector3 RayCastStartPosition = new Vector3(transform.position.x, transform.position.y + m_RayCastHeight, transform.position.z);
+                Vector3 RayCastStartPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
 
                 //Draw The Ray For Debugging
                 Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
                 //RayCast Hit
                 if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f) && hit.collider.GetComponent<S_PcComponent>() != null)
                 {
-                    Connect(hit.collider.gameObject);
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && !(m_HoldingComponent != null && m_PcComponentScript.G_PcComponentHolderActive))
+                    {
+                        Connect(hit.collider.gameObject);
+                    }
+
+                    m_CrosshairImage.sprite = m_CrossharImages[1];
+                }
+                else
+                {
+                    m_CrosshairImage.sprite = m_CrossharImages[0];
                 }
             }
             else if (m_HoldingComponent != null)
             {
-                Disconnect();
+                if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && !(m_HoldingComponent != null && m_PcComponentScript.G_PcComponentHolderActive))
+                {
+                    Disconnect();
+                }
+            }
+            else if(m_GameManagerScript.G_GameState == 0)
+            {
+                //Initializing Variable's
+                RaycastHit hit;
+                Vector3 RayCastStartPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z);
+
+                //Draw The Ray For Debugging
+                Debug.DrawRay(RayCastStartPosition, Camera.main.transform.forward * 4.5f, Color.red);
+                //RayCast Hit
+                if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f) && hit.collider.tag == "Wristband")
+                {
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+                    {
+                    m_GameManagerScript.GoToScene("Game");
+                    }
+
+                    m_CrosshairImage.sprite = m_CrossharImages[1];
+                }
+                else
+                {
+                    m_CrosshairImage.sprite = m_CrossharImages[0];
+                }   
             }
         }
 
@@ -173,14 +230,42 @@ public class S_CameraFollowsMouse : MonoBehaviour
 
         public void Disconnect()
         {
+        if(m_HoldingComponent != null)
+        {
             S_PcComponent ComponentScript = m_HoldingComponent.GetComponent<S_PcComponent>();
 
             ComponentScript.Disconnect();
 
             m_PcComponentScript = null;
             m_HoldingComponent = null;
+        }
 
-            m_CameraRange = 50f;
+            m_CameraRange = 60f;
         }
     #endregion
+
+    private IEnumerator CalculateForce()
+        {
+            while (true)
+            {
+                Quaternion Position = Camera.main.transform.localRotation * transform.localRotation;
+
+                //Debug.Log(Position);
+
+                yield return S_WaitFor.Frames(8);
+                
+                Quaternion NewPosition = Camera.main.transform.localRotation * transform.localRotation;
+
+                m_ControllerForce = new Vector3(Position.x - NewPosition.x, Position.y - NewPosition.y, Position.z - NewPosition.z);
+
+                //Debug.Log(Position);
+            }
+        }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawCube(transform.position, transform.localScale);
+    }
+
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Pickable
   - ComponentHolder
+  - ComputerCase
+  - Canvas
+  - Wristband
   layers:
   - Default
   - TransparentFX

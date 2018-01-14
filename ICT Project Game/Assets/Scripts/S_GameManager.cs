@@ -18,6 +18,11 @@ public class S_GameManager : MonoBehaviour
 
     private bool m_ShowMouse;
 
+    public int G_GameState
+    {
+        get { return (int)m_GameState; }
+    }
+
     public float G_MouseSensitivity
     {
         get { return m_MouseSensitivity; }
@@ -56,9 +61,9 @@ public class S_GameManager : MonoBehaviour
             case "MainMenu":
                 m_GameState = e_GameState.Menu;
 
-                Cursor.lockState = CursorLockMode.None;
+                Cursor.lockState = CursorLockMode.Locked;
 
-                m_ShowMouse = true;
+                m_ShowMouse = false;
                 break;
         }
 
@@ -66,11 +71,16 @@ public class S_GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && m_GameState == e_GameState.Game)
+        if (Input.GetKeyDown(KeyCode.Escape) && m_GameState != e_GameState.GameOver)
         {
             m_ShowMouse = !m_ShowMouse;
         }
         Cursor.visible = m_ShowMouse;
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            GoToScene("MainMenu");
+        }
 
 
         switch (m_ShowMouse)

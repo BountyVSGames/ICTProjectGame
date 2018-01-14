@@ -22,22 +22,27 @@ public class S_PcComponentHolder : MonoBehaviour
 
     private MeshRenderer m_MeshRenderer;
 
+    private S_PcBehaviour m_PcBehaviourScript;
+
     public e_Components G_Component
     {
         get { return m_Component; }
-    }
-    public MeshRenderer G_MeshRenderer
-    {
-        get { return m_MeshRenderer; }
     }
     public S_PcComponent S_PcComponentScript
     {
         set { m_PcComponentScript = value; }
     }
+    public S_PcBehaviour G_PcBehaviourScript
+    {
+        get { return m_PcBehaviourScript; }
+    }
+
 
     void Start()
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
+
+        m_PcBehaviourScript = GameObject.FindWithTag("ComputerCase").GetComponent<S_PcBehaviour>();
     }
 
     void Update()
