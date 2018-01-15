@@ -192,10 +192,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4236784130380630, guid: fe56311e4fb51cd4eb73cbc24fd7e708, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe56311e4fb51cd4eb73cbc24fd7e708, type: 2}
   m_IsPrefabParent: 0
@@ -598,7 +594,7 @@ Prefab:
     - target: {fileID: 224983178882628152, guid: 3017f8545fc7b7447a7fcca956808835,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 319
+      value: 316.5
       objectReference: {fileID: 0}
     - target: {fileID: 224983178882628152, guid: 3017f8545fc7b7447a7fcca956808835,
         type: 2}
