@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: ba889a3bce0917b478dc0abaa1156af5
+timeCreated: 1515457959
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Beam_01
+    100002: Beam_02
+    100004: Door
+    100006: Door_Glass
+    100008: Door_GlassFrame
+    100010: Door_Handle
+    100012: Door_WallFrame
+    100014: Hallway_Ceiling
+    100016: Hallway_Ceiling_Outside
+    100018: Hallway_Floor
+    100020: Hallway_Walls
+    100022: Hallway_Walls_Corners
+    100024: Hallway_Walls_Outside
+    100026: Lightswitch
+    100028: Lightswitch_Button
+    100030: //RootNode
+    100032: Room_Ceiling
+    100034: Room_Ceiling_Bars
+    100036: Room_Ceiling_Lights
+    100038: Room_Ceiling_Lights_Beacon
+    100040: Room_Ceiling_Lights_TL
+    100042: Room_Ceiling_Outside
+    100044: Room_Ceiling_Plates
+    100046: Room_Floor
+    100048: Walls
+    100050: Walls_Corners
+    100052: Walls_Outside
+    100054: Whiteboard_Stylised_01
+    100056: Whiteboard_Stylised_02
+    100058: Whiteboard_Stylised_Corners
+    100060: Whiteboard_Stylised_Corners001
+    100062: Whiteboard_Stylised_Frame
+    100064: Whiteboard_Stylised_Frame001
+    100066: Window_01
+    100068: Window_02
+    100070: Window_03
+    100072: Window_04
+    100074: Window_04 1
+    100076: Window_Beams
+    100078: Window_Beams 1
+    100080: Window_Beams 2
+    100082: Window_Glass
+    100084: Window_Glass 1
+    100086: Window_Glass 2
+    100088: Window_Glass 3
+    100090: Window_Plank
+    100092: Window_Plank 1
+    100094: Window_Plank 2
+    100096: Window_Plank 3
+    400000: Beam_01
+    400002: Beam_02
+    400004: Door
+    400006: Door_Glass
+    400008: Door_GlassFrame
+    400010: Door_Handle
+    400012: Door_WallFrame
+    400014: Hallway_Ceiling
+    400016: Hallway_Ceiling_Outside
+    400018: Hallway_Floor
+    400020: Hallway_Walls
+    400022: Hallway_Walls_Corners
+    400024: Hallway_Walls_Outside
+    400026: Lightswitch
+    400028: Lightswitch_Button
+    400030: //RootNode
+    400032: Room_Ceiling
+    400034: Room_Ceiling_Bars
+    400036: Room_Ceiling_Lights
+    400038: Room_Ceiling_Lights_Beacon
+    400040: Room_Ceiling_Lights_TL
+    400042: Room_Ceiling_Outside
+    400044: Room_Ceiling_Plates
+    400046: Room_Floor
+    400048: Walls
+    400050: Walls_Corners
+    400052: Walls_Outside
+    400054: Whiteboard_Stylised_01
+    400056: Whiteboard_Stylised_02
+    400058: Whiteboard_Stylised_Corners
+    400060: Whiteboard_Stylised_Corners001
+    400062: Whiteboard_Stylised_Frame
+    400064: Whiteboard_Stylised_Frame001
+    400066: Window_01
+    400068: Window_02
+    400070: Window_03
+    400072: Window_04
+    400074: Window_04 1
+    400076: Window_Beams
+    400078: Window_Beams 1
+    400080: Window_Beams 2
+    400082: Window_Glass
+    400084: Window_Glass 1
+    400086: Window_Glass 2
+    400088: Window_Glass 3
+    400090: Window_Plank
+    400092: Window_Plank 1
+    400094: Window_Plank 2
+    400096: Window_Plank 3
+    2300000: Beam_01
+    2300002: Beam_02
+    2300004: Door
+    2300006: Door_Glass
+    2300008: Door_GlassFrame
+    2300010: Door_Handle
+    2300012: Door_WallFrame
+    2300014: Hallway_Ceiling
+    2300016: Hallway_Ceiling_Outside
+    2300018: Hallway_Floor
+    2300020: Hallway_Walls
+    2300022: Hallway_Walls_Corners
+    2300024: Hallway_Walls_Outside
+    2300026: Lightswitch
+    2300028: Lightswitch_Button
+    2300030: Room_Ceiling
+    2300032: Room_Ceiling_Bars
+    2300034: Room_Ceiling_Lights
+    2300036: Room_Ceiling_Lights_Beacon
+    2300038: Room_Ceiling_Lights_TL
+    2300040: Room_Ceiling_Outside
+    2300042: Room_Ceiling_Plates
+    2300044: Room_Floor
+    2300046: Walls
+    2300048: Walls_Corners
+    2300050: Walls_Outside
+    2300052: Whiteboard_Stylised_01
+    2300054: Whiteboard_Stylised_02
+    2300056: Whiteboard_Stylised_Corners
+    2300058: Whiteboard_Stylised_Corners001
+    2300060: Whiteboard_Stylised_Frame
+    2300062: Whiteboard_Stylised_Frame001
+    2300064: Window_01
+    2300066: Window_02
+    2300068: Window_03
+    2300070: Window_04
+    2300072: Window_04 1
+    2300074: Window_Beams
+    2300076: Window_Beams 1
+    2300078: Window_Beams 2
+    2300080: Window_Glass
+    2300082: Window_Glass 1
+    2300084: Window_Glass 2
+    2300086: Window_Glass 3
+    2300088: Window_Plank
+    2300090: Window_Plank 1
+    2300092: Window_Plank 2
+    2300094: Window_Plank 3
+    3300000: Beam_01
+    3300002: Beam_02
+    3300004: Door
+    3300006: Door_Glass
+    3300008: Door_GlassFrame
+    3300010: Door_Handle
+    3300012: Door_WallFrame
+    3300014: Hallway_Ceiling
+    3300016: Hallway_Ceiling_Outside
+    3300018: Hallway_Floor
+    3300020: Hallway_Walls
+    3300022: Hallway_Walls_Corners
+    3300024: Hallway_Walls_Outside
+    3300026: Lightswitch
+    3300028: Lightswitch_Button
+    3300030: Room_Ceiling
+    3300032: Room_Ceiling_Bars
+    3300034: Room_Ceiling_Lights
+    3300036: Room_Ceiling_Lights_Beacon
+    3300038: Room_Ceiling_Lights_TL
+    3300040: Room_Ceiling_Outside
+    3300042: Room_Ceiling_Plates
+    3300044: Room_Floor
+    3300046: Walls
+    3300048: Walls_Corners
+    3300050: Walls_Outside
+    3300052: Whiteboard_Stylised_01
+    3300054: Whiteboard_Stylised_02
+    3300056: Whiteboard_Stylised_Corners
+    3300058: Whiteboard_Stylised_Corners001
+    3300060: Whiteboard_Stylised_Frame
+    3300062: Whiteboard_Stylised_Frame001
+    3300064: Window_01
+    3300066: Window_02
+    3300068: Window_03
+    3300070: Window_04
+    3300072: Window_04 1
+    3300074: Window_Beams
+    3300076: Window_Beams 1
+    3300078: Window_Beams 2
+    3300080: Window_Glass
+    3300082: Window_Glass 1
+    3300084: Window_Glass 2
+    3300086: Window_Glass 3
+    3300088: Window_Plank
+    3300090: Window_Plank 1
+    3300092: Window_Plank 2
+    3300094: Window_Plank 3
+    4300000: Door
+    4300002: Door_Glass
+    4300004: Door_GlassFrame
+    4300006: Door_WallFrame
+    4300008: Door_Handle
+    4300010: Room_Floor
+    4300012: Room_Ceiling
+    4300014: Room_Ceiling_Outside
+    4300016: Room_Ceiling_Plates
+    4300018: Room_Ceiling_Bars
+    4300020: Room_Ceiling_Lights
+    4300022: Room_Ceiling_Lights_Beacon
+    4300024: Room_Ceiling_Lights_TL
+    4300026: Window_04
+    4300028: Window_Beams
+    4300030: Window_Plank
+    4300032: Window_Glass
+    4300034: Walls
+    4300036: Walls_Outside
+    4300038: Walls_Corners
+    4300040: Beam_01
+    4300042: Lightswitch
+    4300044: Lightswitch_Button
+    4300046: Window_03
+    4300048: Window_Beams
+    4300050: Window_Glass
+    4300052: Window_Plank
+    4300054: Hallway_Ceiling
+    4300056: Hallway_Ceiling_Outside
+    4300058: Hallway_Floor
+    4300060: Beam_02
+    4300062: Window_01
+    4300064: Window_Plank
+    4300066: Window_Beams
+    4300068: Window_Plank
+    4300070: Window_02
+    4300072: Window_Glass
+    4300074: Window_04
+    4300076: Window_Glass
+    4300078: Hallway_Walls
+    4300080: Hallway_Walls_Corners
+    4300082: Hallway_Walls_Outside
+    4300084: Whiteboard_Stylised_01
+    4300086: Whiteboard_Stylised_Corners
+    4300088: Whiteboard_Stylised_Frame
+    4300090: Whiteboard_Stylised_02
+    4300092: Whiteboard_Stylised_Corners001
+    4300094: Whiteboard_Stylised_Frame001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 5bbb8b46feb565d418edfc5273bc4495, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
