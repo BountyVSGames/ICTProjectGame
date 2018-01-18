@@ -7,14 +7,21 @@ public class S_GameManager : MonoBehaviour
 {
     private enum e_GameState
     {
-        menu,
-        game,
-        gameOver
+        Menu,
+        Game,
+        GameOver
     }
 
     private e_GameState m_GameState;
     [SerializeField]
     private float m_MouseSensitivity;
+
+    private bool m_ShowMouse;
+
+    public int G_GameState
+    {
+        get { return (int)m_GameState; }
+    }
 
     public float G_MouseSensitivity
     {
@@ -30,14 +37,94 @@ public class S_GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        m_GameState = e_GameState.menu;
-
         m_MouseSensitivity = 2f;
+    }
+
+    void Start()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Game":
+                m_GameState = e_GameState.Game;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+                m_ShowMouse = false;
+                break;
+            case "GameOver":
+                m_GameState = e_GameState.GameOver;
+
+                Cursor.lockState = CursorLockMode.None;
+
+                m_ShowMouse = true;
+                break;
+            case "MainMenu":
+                m_GameState = e_GameState.Menu;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+                m_ShowMouse = false;
+                break;
+        }
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && m_GameState != e_GameState.GameOver)
+        {
+            m_ShowMouse = !m_ShowMouse;
+        }
+        Cursor.visible = m_ShowMouse;
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            GoToScene("MainMenu");
+        }
+
+
+        switch (m_ShowMouse)
+        {
+            case false:
+                Cursor.lockState = CursorLockMode.Locked;
+                break;
+            case true:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+            default:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+        }
     }
 
     public void GoToScene(string Scene)
     {
         SceneManager.LoadScene(Scene);
+
+        switch (Scene)
+        {
+            case "Game":
+                m_GameState = e_GameState.Game;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+                m_ShowMouse = false;
+                break;
+            case "GameOver":
+                m_GameState = e_GameState.GameOver;
+
+                Cursor.lockState = CursorLockMode.None;
+
+                m_ShowMouse = true;
+                break;
+            case "MainMenu":
+                m_GameState = e_GameState.Menu;
+
+                Cursor.lockState = CursorLockMode.None;
+
+                m_ShowMouse = true;
+                break;
+        }
     }
     public void QuitGame()
     {

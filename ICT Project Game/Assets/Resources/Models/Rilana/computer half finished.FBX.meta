@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 19c80aa64f7f65b4591b7941196daad2
+timeCreated: 1513844272
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back computer case
+    100002: back fan window
+    100004: bottom computer case
+    100006: closed side computer case
+    100008: //RootNode
+    100010: front computer case
+    100012: MOEDERBORD
+    100014: on/off power supply
+    100016: open side computer case
+    100018: Power suplly
+    100020: roof computer case
+    100022: ventilator
+    100024: ventilator computer case
+    400000: back computer case
+    400002: back fan window
+    400004: bottom computer case
+    400006: closed side computer case
+    400008: //RootNode
+    400010: front computer case
+    400012: MOEDERBORD
+    400014: on/off power supply
+    400016: open side computer case
+    400018: Power suplly
+    400020: roof computer case
+    400022: ventilator
+    400024: ventilator computer case
+    2300000: back computer case
+    2300002: back fan window
+    2300004: bottom computer case
+    2300006: closed side computer case
+    2300008: front computer case
+    2300010: MOEDERBORD
+    2300012: on/off power supply
+    2300014: open side computer case
+    2300016: Power suplly
+    2300018: roof computer case
+    2300020: ventilator
+    2300022: ventilator computer case
+    3300000: back computer case
+    3300002: back fan window
+    3300004: bottom computer case
+    3300006: closed side computer case
+    3300008: front computer case
+    3300010: MOEDERBORD
+    3300012: on/off power supply
+    3300014: open side computer case
+    3300016: Power suplly
+    3300018: roof computer case
+    3300020: ventilator
+    3300022: ventilator computer case
+    4300000: back computer case
+    4300002: ventilator computer case
+    4300004: MOEDERBORD
+    4300006: on/off power supply
+    4300008: Power suplly
+    4300010: ventilator
+    4300012: back fan window
+    4300014: closed side computer case
+    4300016: open side computer case
+    4300018: front computer case
+    4300020: bottom computer case
+    4300022: roof computer case
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: 3a551c0b79b7da54c8d1dd6375cff16e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 03 - Default
+    second: {fileID: 2100000, guid: 8cd4eb3f7793599409e869277591d5e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 07 - Default
+    second: {fileID: 2100000, guid: fd9ce79a3fe0ac24f945107a83bd7235, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 08 - Default
+    second: {fileID: 2100000, guid: 1196725d728b26646a19887b58dc3572, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 09 - Default
+    second: {fileID: 2100000, guid: bdef3d0d3bab1fd41a96e8dc1fd9f923, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
