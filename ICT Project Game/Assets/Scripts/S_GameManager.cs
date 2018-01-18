@@ -15,6 +15,7 @@ public class S_GameManager : MonoBehaviour
     private e_GameState m_GameState;
     [SerializeField]
     private float m_MouseSensitivity;
+    private float m_TimeOfGame;
 
     private bool m_ShowMouse;
 
@@ -27,6 +28,12 @@ public class S_GameManager : MonoBehaviour
     {
         get { return m_MouseSensitivity; }
     }
+
+    public float G_TimeOfGame
+    {
+        get { return m_TimeOfGame; }
+    }
+
 
     void Awake()
     {
@@ -82,7 +89,6 @@ public class S_GameManager : MonoBehaviour
             GoToScene("MainMenu");
         }
 
-
         switch (m_ShowMouse)
         {
             case false:
@@ -99,8 +105,6 @@ public class S_GameManager : MonoBehaviour
 
     public void GoToScene(string Scene)
     {
-        SceneManager.LoadScene(Scene);
-
         switch (Scene)
         {
             case "Game":
@@ -112,6 +116,8 @@ public class S_GameManager : MonoBehaviour
                 break;
             case "GameOver":
                 m_GameState = e_GameState.GameOver;
+
+                m_TimeOfGame = Time.timeSinceLevelLoad;
 
                 Cursor.lockState = CursorLockMode.None;
 
@@ -125,6 +131,8 @@ public class S_GameManager : MonoBehaviour
                 m_ShowMouse = true;
                 break;
         }
+
+        SceneManager.LoadScene(Scene);
     }
     public void QuitGame()
     {

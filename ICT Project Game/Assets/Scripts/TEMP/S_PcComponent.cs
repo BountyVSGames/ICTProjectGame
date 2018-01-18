@@ -109,6 +109,7 @@ public class S_PcComponent : MonoBehaviour
             GetComponents<BoxCollider>()[1].enabled = false;
 
             PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)m_Component] = true;
+            PcComponentHolderScript.G_PcBehaviourScript.CheckWin();
 
             m_PlayerScript = null;
 
@@ -142,11 +143,11 @@ public class S_PcComponent : MonoBehaviour
         {
             S_PcComponentHolder PcComponentHolderScript = Collide.GetComponent<S_PcComponentHolder>();
 
-            if ((m_Component != e_Components.Processor && m_Component != e_Components.ProcessorCooling && m_Component != e_Components.Ram && m_Component != e_Components.GraphicsCard))
+            if ((m_Component != e_Components.Processor && /*m_Component != e_Components.ProcessorCooling &&*/ m_Component != e_Components.Ram && m_Component != e_Components.GraphicsCard))
             {
                 ComponentInteractWithComponentHolder(PcComponentHolderScript, Collide.gameObject);
             }
-            else if ((m_Component == e_Components.Processor || m_Component == e_Components.ProcessorCooling || m_Component == e_Components.Ram || m_Component == e_Components.GraphicsCard) && PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard])
+            else if ((m_Component == e_Components.Processor || /*m_Component == e_Components.ProcessorCooling ||*/ m_Component == e_Components.Ram || m_Component == e_Components.GraphicsCard) && PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard])
             {
                 ComponentInteractWithComponentHolder(PcComponentHolderScript, Collide.gameObject);
             }

@@ -9,6 +9,11 @@ public class S_UIManager : MonoBehaviour
     void Start()
     {
         m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
+
+        if(m_GameManagerScript.G_GameState == 2)
+        {
+            transform.Find("SecondsText").GetComponent<TMPro.TextMeshProUGUI>().text = "Time of Completion in Seconds: " + m_GameManagerScript.G_TimeOfGame + " seconds!";
+        }
     }
 
     public void ChangeScene(string Scene)

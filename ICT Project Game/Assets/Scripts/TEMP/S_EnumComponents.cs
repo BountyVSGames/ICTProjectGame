@@ -1,10 +1,10 @@
 ﻿public enum e_Components
 {
     Motherboard = 0,
-    Ram,
-    GraphicsCard,
-    HardDrive,
-    Processor,
-    ProcessorCooling,
-    PowerSupply
+    Ram = 1,
+    GraphicsCard = 2,
+    HardDrive = 3,
+    Processor = 4,
+    PowerSupply = 5/*,
+    ProcessorCooling*/
 }

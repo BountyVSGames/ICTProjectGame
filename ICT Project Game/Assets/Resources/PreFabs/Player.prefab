@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4833566191321402}
   - component: {fileID: 20453815649403730}
-  - component: {fileID: 92241674318999834}
   - component: {fileID: 124575008981632976}
   - component: {fileID: 81061246316263548}
   - component: {fileID: 114435133010579222}
@@ -86,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861169367240760}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.4, y: 7.803, z: -16.69027}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 9.91, y: 1.613, z: -16.69027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4573250308004884}
   m_Father: {fileID: 0}
@@ -179,10 +178,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &65293483047098634
 BoxCollider:
@@ -194,17 +193,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!81 &81061246316263548
 AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1015495106098524}
-  m_Enabled: 1
---- !u!92 &92241674318999834
-Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -223,9 +215,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Speed: 0
   m_MouseSensitivity: 0
-  m_CrossharImages:
+  m_CrosshairImages:
   - {fileID: 21300000, guid: 80193d9b33f257547a71622ca7b72f11, type: 3}
   - {fileID: 21300000, guid: 5123fc2a6b70ffc409b2b7e8878e1676, type: 3}
+  m_SelectedMaterial: {fileID: 2100000, guid: 744b70215e69a4f40aaa19ded6f4bf64, type: 2}
+  m_OldMaterial: {fileID: 0}
   m_RayCastHeight: 0.5
   m_ComponentHolder: {fileID: 1017978481809684}
 --- !u!114 &114435133010579222
