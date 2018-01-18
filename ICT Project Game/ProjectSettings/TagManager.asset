@@ -6,9 +6,7 @@ TagManager:
   tags:
   - Pickable
   - ComponentHolder
-  - ComputerCase
-  - Canvas
-  - Wristband
+  - Buildings
   layers:
   - Default
   - TransparentFX
@@ -19,8 +17,8 @@ TagManager:
   - 
   - 
   - Trigger
-  - 
-  - 
+  - Outside
+  - Room
   - 
   - 
   - 
