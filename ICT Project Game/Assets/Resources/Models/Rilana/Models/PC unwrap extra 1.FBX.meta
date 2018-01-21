@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 56d532c72f7d3a649936b47ec2f77a38
+timeCreated: 1516573703
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back Case
+    100002: Back case
+    100004: back fan window
+    100006: Base Case
+    100008: Circle001
+    100010: Cover 1
+    100012: Cover 2
+    100014: Door Front case
+    100016: Fan
+    100018: Fan 2
+    100020: Front case
+    100022: Motherboard
+    100024: on/off power supply
+    100026: open side computer case
+    100028: //RootNode
+    100030: Plane001
+    100032: Power suplly
+    100034: Processor
+    100036: Ram
+    100038: Ram 2
+    100040: Roof Case
+    100042: Video kaart
+    400000: Back Case
+    400002: Back case
+    400004: back fan window
+    400006: Base Case
+    400008: Circle001
+    400010: Cover 1
+    400012: Cover 2
+    400014: Door Front case
+    400016: Fan
+    400018: Fan 2
+    400020: Front case
+    400022: Motherboard
+    400024: on/off power supply
+    400026: open side computer case
+    400028: //RootNode
+    400030: Plane001
+    400032: Power suplly
+    400034: Processor
+    400036: Ram
+    400038: Ram 2
+    400040: Roof Case
+    400042: Video kaart
+    2300000: Back Case
+    2300002: Back case
+    2300004: back fan window
+    2300006: Base Case
+    2300008: Cover 1
+    2300010: Cover 2
+    2300012: Door Front case
+    2300014: Fan
+    2300016: Fan 2
+    2300018: Front case
+    2300020: Motherboard
+    2300022: on/off power supply
+    2300024: open side computer case
+    2300026: Plane001
+    2300028: Power suplly
+    2300030: Processor
+    2300032: Ram
+    2300034: Ram 2
+    2300036: Roof Case
+    2300038: Video kaart
+    3300000: Back Case
+    3300002: Back case
+    3300004: back fan window
+    3300006: Base Case
+    3300008: Cover 1
+    3300010: Cover 2
+    3300012: Door Front case
+    3300014: Fan
+    3300016: Fan 2
+    3300018: Front case
+    3300020: Motherboard
+    3300022: on/off power supply
+    3300024: open side computer case
+    3300026: Plane001
+    3300028: Power suplly
+    3300030: Processor
+    3300032: Ram
+    3300034: Ram 2
+    3300036: Roof Case
+    3300038: Video kaart
+    4300000: Back Case
+    4300002: Fan
+    4300004: Motherboard
+    4300006: on/off power supply
+    4300008: Power suplly
+    4300010: Fan 2
+    4300012: back fan window
+    4300014: Back case
+    4300016: open side computer case
+    4300018: Front case
+    4300020: Base Case
+    4300022: Roof Case
+    4300024: Ram
+    4300026: Ram 2
+    4300028: Cover 2
+    4300030: Door Front case
+    4300032: Processor
+    4300034: Video kaart
+    4300036: Cover 1
+    4300038: Plane001
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: 0149f8828f05ca940902a64e2873837b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: 18a74403405f8034ab49d43e55aa2abc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 14 - Default
+    second: {fileID: 2100000, guid: d841b758be290d64b9c2c64aaf9f75df, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 15 - Default
+    second: {fileID: 2100000, guid: 5c98e06dff19e834b903d5814ec04bc9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 16 - Default
+    second: {fileID: 2100000, guid: 971f7ac7bdad5c3429676859414e0f62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 17 - Default
+    second: {fileID: 2100000, guid: 167e4e108c7479a4aa177441d2b02956, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 18 - Default
+    second: {fileID: 2100000, guid: 7c75f2f4e92ea6f48929d7fa6efcba83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 19 - Default
+    second: {fileID: 2100000, guid: 1907b14420eabf041955cda338ed63be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 20 - Default
+    second: {fileID: 2100000, guid: acb611446da30994ab1f431ea7db897d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 21 - Default
+    second: {fileID: 2100000, guid: 5192389ee10173346b85d5f5b4af51d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 22 - Default
+    second: {fileID: 2100000, guid: 04245d7d15df2b24fa8e82026535617f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 23 - Default
+    second: {fileID: 2100000, guid: f7b6cdb8aa12aef4196f581f9d53c38d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 24 - Default
+    second: {fileID: 2100000, guid: 6bcc8d22089ae66409bab6d0099e17c7, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

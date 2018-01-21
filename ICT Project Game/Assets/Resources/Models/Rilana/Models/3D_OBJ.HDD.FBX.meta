@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 810d0a3b0657c2a44b06b55ab0c7ebae
+timeCreated: 1516574866
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box1
+    100004: Box2
+    100006: HDD
+    100008: Mini_naald
+    100010: Naald
+    100012: Schijven
+    100014: Schroeven
+    400000: //RootNode
+    400002: Box1
+    400004: Box2
+    400006: HDD
+    400008: Mini_naald
+    400010: Naald
+    400012: Schijven
+    400014: Schroeven
+    2300000: Box1
+    2300002: Box2
+    2300004: HDD
+    2300006: Mini_naald
+    2300008: Naald
+    2300010: Schijven
+    2300012: Schroeven
+    3300000: Box1
+    3300002: Box2
+    3300004: HDD
+    3300006: Mini_naald
+    3300008: Naald
+    3300010: Schijven
+    3300012: Schroeven
+    4300000: Schijven
+    4300002: Naald
+    4300004: Box2
+    4300006: Schroeven
+    4300008: Box1
+    4300010: Mini_naald
+    4300012: HDD
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HDD_Box
+    second: {fileID: 2100000, guid: 616e7a4c9425a4f4bb32fe6918c31763, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MiniBox1
+    second: {fileID: 2100000, guid: 8f2a8a0ee35f8c24387642665fd21766, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MiniNaald
+    second: {fileID: 2100000, guid: db46b07a36eb6ab4fbf582cb3aad2103, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Minibox2
+    second: {fileID: 2100000, guid: b89880ab7558c4743b2cfc31895152c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Naalden
+    second: {fileID: 2100000, guid: 3d192fa78ebde5c49b96cb29bb000f89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schijven
+    second: {fileID: 2100000, guid: 2a5ad75c0d11f60439fcaf089a44a85d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schroeven
+    second: {fileID: 2100000, guid: 640d4f15b23ff7743b598e6bbd373f54, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
