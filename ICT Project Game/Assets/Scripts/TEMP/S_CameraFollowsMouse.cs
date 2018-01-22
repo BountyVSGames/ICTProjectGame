@@ -18,6 +18,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_VerticalRotation;
 
     //Serialized Movement Variable's
+    [Header("Movement Variable's:")]
     private Vector3 m_Move;
     [SerializeField]
     private float m_Speed;
@@ -25,18 +26,33 @@ public class S_CameraFollowsMouse : MonoBehaviour
     private float m_MouseSensitivity;
     private float m_Scrolling;
 
+    [Space(5)]
+    [Header("Changeable Materials:")]
+    [SerializeField]
+    private Sprite[] m_CrosshairImages;
     private Image m_CrosshairImage;
     [SerializeField]
-    private Sprite[] m_CrossharImages;
+    private Material m_SelectedMaterial;
+    [SerializeField]
+    private Material m_OldMaterial;
 
     //Game Manager Script
     private S_GameManager m_GameManagerScript;
 
     //Other Variables
     private GameObject m_HoldingComponent;
+    private GameObject m_PreviousSelectedObject;
     private S_PcComponent m_PcComponentScript;
 
     private Vector3 m_ControllerForce;
+
+    //Serialized Variable's
+    [Space(5)]
+    [Header("Debug Information:")]
+    [SerializeField]
+    private float m_RayCastHeight;
+    [SerializeField]
+    private GameObject m_ComponentHolder;
 
     //Get Setters
     public S_PcComponent S_PcComponentScript
@@ -51,16 +67,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
     {
         get { return m_ControllerForce; }
     }
-
-
-
-    //Serialized Variable's
-    [Space(5)]
-    [Header("Debug Information:")]
-    [SerializeField]
-    private float m_RayCastHeight;
-    [SerializeField]
-    private GameObject m_ComponentHolder;
 
     //Initializing Variable's
     private void Start()
@@ -176,11 +182,11 @@ public class S_CameraFollowsMouse : MonoBehaviour
                         Connect(hit.collider.gameObject);
                     }
 
-                    m_CrosshairImage.sprite = m_CrossharImages[1];
+                    m_CrosshairImage.sprite = m_CrosshairImages[1];
                 }
                 else
                 {
-                    m_CrosshairImage.sprite = m_CrossharImages[0];
+                    m_CrosshairImage.sprite = m_CrosshairImages[0];
                 }
             }
             else if (m_HoldingComponent != null)
@@ -201,16 +207,41 @@ public class S_CameraFollowsMouse : MonoBehaviour
                 //RayCast Hit
                 if (Physics.Raycast(RayCastStartPosition, Camera.main.transform.forward, out hit, 4.5f) && hit.collider.tag == "Wristband")
                 {
-                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+                    MeshRenderer CollidedMeshRenderer = hit.collider.GetComponent<MeshRenderer>();
+
+                    if(m_PreviousSelectedObject != null)
                     {
-                    m_GameManagerScript.GoToScene("Game");
+                        m_PreviousSelectedObject.GetComponent<MeshRenderer>().materials[1] = null;
                     }
 
-                    m_CrosshairImage.sprite = m_CrossharImages[1];
+                    if(!(CollidedMeshRenderer.materials.Length > 1))
+                    {
+                        m_OldMaterial = CollidedMeshRenderer.materials[0];
+
+                        CollidedMeshRenderer.materials = new Material[2];
+
+                        CollidedMeshRenderer.materials[0] = m_OldMaterial;
+                        CollidedMeshRenderer.materials[1] = m_SelectedMaterial;
+                    }
+                    else
+                    {
+                        CollidedMeshRenderer.materials[1] = m_SelectedMaterial;
+                    }
+
+                    if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)))
+                    {
+                        m_GameManagerScript.GoToScene("Game");
+                    }
+
+                    m_PreviousSelectedObject = hit.collider.gameObject;
+
+                    m_CrosshairImage.sprite = m_CrosshairImages[1];
                 }
-                else
+                else if(m_PreviousSelectedObject != null)
                 {
-                    m_CrosshairImage.sprite = m_CrossharImages[0];
+                    m_PreviousSelectedObject.GetComponent<MeshRenderer>().materials[1] = null;
+
+                    m_CrosshairImage.sprite = m_CrosshairImages[0];
                 }   
             }
         }
@@ -257,8 +288,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
                 Quaternion NewPosition = Camera.main.transform.localRotation * transform.localRotation;
 
                 m_ControllerForce = new Vector3(Position.x - NewPosition.x, Position.y - NewPosition.y, Position.z - NewPosition.z);
-
-                //Debug.Log(Position);
             }
         }
 
@@ -267,5 +296,4 @@ public class S_CameraFollowsMouse : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(transform.position, transform.localScale);
     }
-
 }
