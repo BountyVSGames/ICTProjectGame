@@ -1,0 +1,160 @@
+fileFormatVersion: 2
+guid: a94cb5ab29457b940b332e52ee85e0fa
+timeCreated: 1516112394
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: House_Type01_Chimney
+    100002: House_Type01_ChimneyBricks
+    100004: House_Type01_CornerBeam
+    100006: House_Type01_Edge
+    100008: House_Type01_Roof
+    100010: House_Type01_RoofLedge
+    100012: House_Type01_SupportBeam
+    100014: House_Type01_SupportPoles
+    100016: House_Type01_TopEdge
+    100018: House_Type01_TopStatue
+    100020: House_Type01_TopTiles
+    100022: House_Window
+    100024: House_Window_Glass
+    100026: //RootNode
+    400000: House_Type01_Chimney
+    400002: House_Type01_ChimneyBricks
+    400004: House_Type01_CornerBeam
+    400006: House_Type01_Edge
+    400008: House_Type01_Roof
+    400010: House_Type01_RoofLedge
+    400012: House_Type01_SupportBeam
+    400014: House_Type01_SupportPoles
+    400016: House_Type01_TopEdge
+    400018: House_Type01_TopStatue
+    400020: House_Type01_TopTiles
+    400022: House_Window
+    400024: House_Window_Glass
+    400026: //RootNode
+    2300000: House_Type01_Chimney
+    2300002: House_Type01_ChimneyBricks
+    2300004: House_Type01_CornerBeam
+    2300006: House_Type01_Edge
+    2300008: House_Type01_Roof
+    2300010: House_Type01_RoofLedge
+    2300012: House_Type01_SupportBeam
+    2300014: House_Type01_SupportPoles
+    2300016: House_Type01_TopEdge
+    2300018: House_Type01_TopStatue
+    2300020: House_Type01_TopTiles
+    2300022: House_Window
+    2300024: House_Window_Glass
+    2300026: //RootNode
+    3300000: House_Type01_Chimney
+    3300002: House_Type01_ChimneyBricks
+    3300004: House_Type01_CornerBeam
+    3300006: House_Type01_Edge
+    3300008: House_Type01_Roof
+    3300010: House_Type01_RoofLedge
+    3300012: House_Type01_SupportBeam
+    3300014: House_Type01_SupportPoles
+    3300016: House_Type01_TopEdge
+    3300018: House_Type01_TopStatue
+    3300020: House_Type01_TopTiles
+    3300022: House_Window
+    3300024: House_Window_Glass
+    3300026: //RootNode
+    4300000: House_Type01
+    4300002: House_Type01_Roof
+    4300004: House_Window
+    4300006: House_Window_Glass
+    4300008: House_Type01_RoofLedge
+    4300010: House_Type01_TopEdge
+    4300012: House_Type01_TopStatue
+    4300014: House_Type01_TopTiles
+    4300016: House_Type01_Chimney
+    4300018: House_Type01_ChimneyBricks
+    4300020: House_Type01_Edge
+    4300022: House_Type01_SupportPoles
+    4300024: House_Type01_SupportBeam
+    4300026: House_Type01_CornerBeam
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 5cf3da74d54fdd647915dc0e3d01c070, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
