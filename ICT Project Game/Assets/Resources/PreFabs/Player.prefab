@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4236784130380630}
   - component: {fileID: 65293483047098634}
   - component: {fileID: 54922506422043938}
-  - component: {fileID: 114050552541774908}
+  - component: {fileID: 114777516974995252}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -84,8 +84,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861169367240760}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 9.91, y: 1.613, z: -16.69027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.035, y: 1.486, z: -16.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4573250308004884}
@@ -202,26 +202,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015495106098524}
   m_Enabled: 1
---- !u!114 &114050552541774908
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1861169367240760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16e5a56225f1ff946a2a2f43e7fced82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Speed: 0
-  m_MouseSensitivity: 0
-  m_CrosshairImages:
-  - {fileID: 21300000, guid: 80193d9b33f257547a71622ca7b72f11, type: 3}
-  - {fileID: 21300000, guid: 5123fc2a6b70ffc409b2b7e8878e1676, type: 3}
-  m_SelectedMaterial: {fileID: 2100000, guid: 744b70215e69a4f40aaa19ded6f4bf64, type: 2}
-  m_OldMaterial: {fileID: 0}
-  m_RayCastHeight: 0.5
-  m_ComponentHolder: {fileID: 1017978481809684}
 --- !u!114 &114435133010579222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,6 +214,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: cbfafef454d6ffc4380b344a7a8f3a1b, type: 2}
+--- !u!114 &114777516974995252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861169367240760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a7616139b35984694a2be728d4c757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Movement: {x: 0, y: 0, z: 0}
+  m_Rotation: {x: 0, y: 0, z: 0}
+  m_Speed: 2
+  m_RayLenght: 2.5
+  m_CrosshairImage: {fileID: 0}
+  m_CrosshairSprites: []
+  m_SelectedMaterial: {fileID: 0}
+  m_SelectedOldMaterial: {fileID: 0}
 --- !u!124 &124575008981632976
 Behaviour:
   m_ObjectHideFlags: 1

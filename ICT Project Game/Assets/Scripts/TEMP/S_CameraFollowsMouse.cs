@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(S_CameraFollowsMouse))]
 
 public class S_CameraFollowsMouse : MonoBehaviour
 {
@@ -30,7 +28,7 @@ public class S_CameraFollowsMouse : MonoBehaviour
     [Header("Changeable Materials:")]
     [SerializeField]
     private Sprite[] m_CrosshairImages;
-    private Image m_CrosshairImage;
+    private UnityEngine.UI.Image m_CrosshairImage;
     [SerializeField]
     private Material m_SelectedMaterial;
     [SerializeField]
@@ -71,9 +69,9 @@ public class S_CameraFollowsMouse : MonoBehaviour
     //Initializing Variable's
     private void Start()
     {
-        m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<S_GameManager>();
+        m_GameManagerScript = GameObject.FindObjectOfType<S_GameManager>();
 
-        m_CrosshairImage = GameObject.FindWithTag("Canvas").transform.GetChild(0).GetComponent<Image>();
+        m_CrosshairImage = GameObject.FindObjectOfType<UnityEngine.UI.Image>();
 
         m_CameraRange = 60.0f;
         m_VerticalRotation = 0;
@@ -81,8 +79,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
         m_Scrolling = 0;
 
         m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
-
-        StartCoroutine(CalculateForce());
     }
 
     //Update, runs every frame
@@ -274,22 +270,6 @@ public class S_CameraFollowsMouse : MonoBehaviour
             m_CameraRange = 60f;
         }
     #endregion
-
-    private IEnumerator CalculateForce()
-        {
-            while (true)
-            {
-                Quaternion Position = Camera.main.transform.localRotation * transform.localRotation;
-
-                //Debug.Log(Position);
-
-                yield return S_WaitFor.Frames(8);
-                
-                Quaternion NewPosition = Camera.main.transform.localRotation * transform.localRotation;
-
-                m_ControllerForce = new Vector3(Position.x - NewPosition.x, Position.y - NewPosition.y, Position.z - NewPosition.z);
-            }
-        }
 
     private void OnDrawGizmos()
     {

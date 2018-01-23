@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pickable
   - ComponentHolder
   - Buildings
+  - Wristband
+  - Canvas
+  - ComputerCase
+  - Interactable
   layers:
   - Default
   - TransparentFX

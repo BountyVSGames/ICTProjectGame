@@ -5,6 +5,6 @@
     GraphicsCard = 2,
     HardDrive = 3,
     Processor = 4,
-    PowerSupply = 5/*,
-    ProcessorCooling*/
+    PowerSupply = 5,
+    ProcessorCooling = 6
 }

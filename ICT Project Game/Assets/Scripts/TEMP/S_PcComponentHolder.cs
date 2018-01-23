@@ -42,7 +42,7 @@ public class S_PcComponentHolder : MonoBehaviour
     {
         m_MeshRenderer = GetComponent<MeshRenderer>();
 
-        m_PcBehaviourScript = GameObject.FindWithTag("ComputerCase").GetComponent<S_PcBehaviour>();
+        m_PcBehaviourScript = transform.parent.GetComponent<S_PcBehaviour>();
     }
 
     void Update()
