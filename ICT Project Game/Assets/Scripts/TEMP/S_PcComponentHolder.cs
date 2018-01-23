@@ -23,7 +23,7 @@ namespace ICTProjectGame.Player
         private Material m_SelectedMaterial;
 
         private MeshRenderer m_MeshRenderer;
-
+        [SerializeField]
         private S_PcBehaviour m_PcBehaviourScript;
 
         public e_Components G_Component
@@ -44,7 +44,7 @@ namespace ICTProjectGame.Player
         {
             m_MeshRenderer = GetComponent<MeshRenderer>();
 
-            m_PcBehaviourScript = transform.parent.GetComponent<S_PcBehaviour>();
+            m_PcBehaviourScript = GameObject.FindObjectOfType<S_PcBehaviour>();
         }
 
         void Update()

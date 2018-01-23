@@ -106,7 +106,7 @@ namespace ICTProjectGame.Player
                     {
                         S_Interactable SelectedObjectScript = RayCastHit.collider.GetComponent<S_Interactable>();
 
-                        SelectedObjectScript.Connect(m_LinkObject, this);
+                        SelectedObjectScript.Connect(m_LinkObject, this, null);
                     }
 
                     m_CrosshairImage.sprite = m_CrosshairSprites[1];

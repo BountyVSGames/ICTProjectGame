@@ -10,6 +10,7 @@ namespace ICTProjectGame.Player
         private bool[] m_BoolCheck;
 
         private ICTProjectGame.Managment.S_GameManager m_GameManagerScript;
+        private ICTProjectGame.Managment.S_Checklist m_ChecklistScript;
 
         public bool[] G_BoolCheck
         {
@@ -18,9 +19,15 @@ namespace ICTProjectGame.Player
 
         private void Start()
         {
-            m_GameManagerScript = GameObject.FindWithTag("GameController").GetComponent<ICTProjectGame.Managment.S_GameManager>();
+            m_GameManagerScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_GameManager>();
+            m_ChecklistScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_Checklist>();
 
             m_BoolCheck = new bool[System.Enum.GetValues((typeof(e_Components))).Length];
+        }
+
+        public void UpdateChecklist()
+        {
+            m_ChecklistScript.UpdateChecklist();
         }
 
         public void CheckWin()
