@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ICTProjectGame
+namespace ICTProjectGame.Player
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(BoxCollider))]
@@ -17,7 +17,7 @@ namespace ICTProjectGame
 
         [Space(5)]
         [Header("Component Settings")]
-        [SerializeField] private e_Components m_Components;
+        [SerializeField] private e_Components m_Component;
 
         private GameObject m_PickedUpObject;
 
@@ -28,6 +28,10 @@ namespace ICTProjectGame
         public bool G_PcComponentHolderActive
         {
             get { return m_PcComponentHolderActive; }
+        }
+        public bool G_PickedUp
+        {
+            get { return m_PickedUp; }
         }
 
         //Initializing variable's
@@ -46,30 +50,38 @@ namespace ICTProjectGame
         }
 
         #region Connecting and Disconnecting Objects for 'hand'
-            public void Connect(GameObject ConnectToObject, S_Player PlayerScript = null)
+            public void Connect(GameObject ConnectToObject, S_Player PlayerScript = null, S_PcComponentHolder PcComponentHolderScript = null)
             {
-                for (int i = 0; i < GetComponents<Collider>().Length; i++)
-                {
-                    if (!GetComponents<Collider>()[i].isTrigger)
-                    {
-                        GetComponents<Collider>()[i].enabled = true;
-                    }
-                }
-
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
                 transform.parent = ConnectToObject.transform;
                 transform.localPosition = Vector3.zero;
 
-                m_PickUpDelay = 1;
-
-                StartCoroutine(DelayTimer());
-
                 m_PickedUpObject = ConnectToObject;
 
-                m_PlayerScript = PlayerScript;
+                if (PlayerScript != null && PcComponentHolderScript == null)
+                {
+                    for (int i = 0; i < GetComponents<Collider>().Length; i++)
+                    {
+                        if (!GetComponents<Collider>()[i].isTrigger)
+                        {
+                            GetComponents<Collider>()[i].enabled = true;
+                        }
+                    }
 
-                m_PickedUp = true;
+                    m_PlayerScript = PlayerScript;
+
+                    m_PickedUp = true;
+                }
+                else if (PlayerScript == null && PcComponentHolderScript != null)
+                {
+                    GetComponents<Collider>()[0].enabled = false;
+                    GetComponents<Collider>()[1].enabled = true;
+
+                    PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)m_Component] = true;
+                }
+
+                m_PickUpDelay = 1;
             }
             public void Disconnect()
             {
@@ -91,7 +103,7 @@ namespace ICTProjectGame
                 if(m_PlayerScript != null)
                 {
                     ObjectsRigidbody.AddForce(m_PickedUpObject.transform.forward * m_TrowFroce, ForceMode.Impulse);
-                 //TODO: Remaking the script. Need more concentration for this shit
+
                     m_PlayerScript.Disconnect();
                 }
 
@@ -99,15 +111,15 @@ namespace ICTProjectGame
                 m_PickedUpObject = null;
                 m_PickedUp = false;
             }
-
-            private IEnumerator DelayTimer()
-            {
-                while (m_PickUpDelay > 0)
-                {
-                    m_PickUpDelay -= 0.25f;
-                    yield return new WaitForSeconds(.1f);
-                }
-            }
         #endregion
+
+        private IEnumerator DelayTimer()
+        {
+            while (m_PickUpDelay > 0)
+            {
+                m_PickUpDelay -= 0.25f;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
     }
 }

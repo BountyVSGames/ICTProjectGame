@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ICTProjectGame
+namespace ICTProjectGame.Player
 {
     public class S_Player : MonoBehaviour
     {
@@ -30,7 +30,7 @@ namespace ICTProjectGame
         private GameObject m_PreviousSelectedObject;
         private GameObject m_LinkObject;
 
-        private S_GameManager m_GameManagerScript;
+        private ICTProjectGame.Managment.S_GameManager m_GameManagerScript;
 
         private void Start()
         {
@@ -39,7 +39,7 @@ namespace ICTProjectGame
 
             m_CrosshairImage = GameObject.FindObjectOfType<UnityEngine.UI.Image>();
 
-            m_GameManagerScript = GameObject.FindObjectOfType<S_GameManager>();
+            m_GameManagerScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_GameManager>();
             m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
         }
 

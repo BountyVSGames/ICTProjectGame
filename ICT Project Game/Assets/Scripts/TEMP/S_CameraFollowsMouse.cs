@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
+/*
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 
@@ -276,4 +276,4 @@ public class S_CameraFollowsMouse : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(transform.position, transform.localScale);
     }
-}
+}*/
