@@ -19,6 +19,7 @@ namespace ICTProjectGame.Managment
 
         [SerializeField]
         private Sprite[] m_TuturialSprites;
+        private Sprite[] m_TuturialSpritesAdded;
 
         [SerializeField]
         private float m_MouseSensitivity;
@@ -52,6 +53,26 @@ namespace ICTProjectGame.Managment
             DontDestroyOnLoad(this.gameObject);
 
             m_MouseSensitivity = 2f;
+
+            m_TuturialSpritesAdded = m_TuturialSprites;
+
+            SpriteRenderer[] m_TutorialSpriteRenderers = GameObject.FindObjectOfType<S_TuturialSprites>().transform.GetComponentsInChildren<SpriteRenderer>();
+
+            for (int i = 0; i < m_TutorialSpriteRenderers.Length; i++)
+            {
+                int RandomNumber = Random.Range(0, m_TuturialSpritesAdded.Length);
+
+                if(m_TuturialSpritesAdded[RandomNumber] != null)
+                {
+                    m_TutorialSpriteRenderers[i].sprite = m_TuturialSpritesAdded[RandomNumber];
+
+                    m_TuturialSpritesAdded[RandomNumber] = null;
+                }
+                else
+                {
+                    i--;
+                }
+            }
         }
 
         void Start()
@@ -93,7 +114,7 @@ namespace ICTProjectGame.Managment
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                GoToScene("MainMenu");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             switch (m_ShowMouse)

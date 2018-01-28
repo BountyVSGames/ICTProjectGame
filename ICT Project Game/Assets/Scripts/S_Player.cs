@@ -110,11 +110,22 @@ namespace ICTProjectGame.Player
                 {
                     GameObject SelectedObject = RayCastHit.collider.gameObject;
 
-                    if (Input.GetMouseButtonDown(0) && RayCastHit.collider.GetComponent<S_Interactable>())
+                    if(Input.GetMouseButtonDown(0))
                     {
-                        S_Interactable SelectedObjectScript = RayCastHit.collider.GetComponent<S_Interactable>();
+                        if(RayCastHit.collider.GetComponent<S_Interactable>())
+                        {
+                            S_Interactable SelectedObjectScript = RayCastHit.collider.GetComponent<S_Interactable>();
 
-                        SelectedObjectScript.Connect(m_LinkObject, this, null);
+                            SelectedObjectScript.Connect(m_LinkObject, this, null);
+                        }
+                        else if(RayCastHit.collider.GetComponent<S_TurningButton>())
+                        {
+                            m_GameManagerScript.GoToScene("Game");
+                        }
+                        else if (RayCastHit.collider.GetComponent<S_StartThePC>())
+                        {
+                            GameObject.FindObjectOfType<S_PcBehaviour>().CheckWin();
+                        }
                     }
 
                     m_CrosshairImage.sprite = m_CrosshairSprites[1];

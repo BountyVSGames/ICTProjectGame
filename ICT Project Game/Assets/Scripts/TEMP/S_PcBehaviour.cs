@@ -12,6 +12,11 @@ namespace ICTProjectGame.Player
         private ICTProjectGame.Managment.S_GameManager m_GameManagerScript;
         private ICTProjectGame.Managment.S_Checklist m_ChecklistScript;
 
+        private GameObject m_Monitor;
+
+        [SerializeField]
+        private Material[] m_MonitorScreens;
+
         public bool[] G_BoolCheck
         {
             get { return m_BoolCheck; }
@@ -21,6 +26,8 @@ namespace ICTProjectGame.Player
         {
             m_GameManagerScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_GameManager>();
             m_ChecklistScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_Checklist>();
+
+            m_Monitor = GameObject.FindWithTag("Monitor");
 
             m_BoolCheck = new bool[System.Enum.GetValues((typeof(e_Components))).Length];
         }
@@ -36,12 +43,31 @@ namespace ICTProjectGame.Player
             {
                 if (!m_BoolCheck[i])
                 {
+                    Debug.Log("'LOSE'");
+                    m_Monitor.GetComponent<MeshRenderer>().material = m_MonitorScreens[1];
+                    StartCoroutine(GoToEndScreen(false));
                     break;
                 }
                 else if (m_BoolCheck[i] && (i == m_BoolCheck.Length - 1))
                 {
-                    m_GameManagerScript.GoToScene("GameOver");
+                    //m_GameManagerScript.GoToScene("GameOver");
+                    Debug.Log("'WIN'");
+                    m_Monitor.GetComponent<MeshRenderer>().material = m_MonitorScreens[0];
+                    StartCoroutine(GoToEndScreen(true));
                 }
+            }
+        }
+
+        private IEnumerator GoToEndScreen(bool WinState)
+        {
+            yield return new WaitForSeconds(5f);
+            if(WinState)
+            {
+                m_GameManagerScript.GoToScene("GameOver");
+            }
+            else
+            {
+                m_GameManagerScript.GoToScene("MainMenu");
             }
         }
     }

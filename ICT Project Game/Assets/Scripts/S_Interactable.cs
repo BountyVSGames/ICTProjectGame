@@ -107,7 +107,7 @@ namespace ICTProjectGame.Player
                     GetComponents<Collider>()[1].enabled = false;
 
                     transform.rotation = transform.parent.rotation;
-                    transform.localScale = transform.parent.localScale;
+                    transform.localScale = Vector3.one;
 
                     PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)m_Component] = true;
                     PcComponentHolderScript.G_PcBehaviourScript.UpdateChecklist();
@@ -161,11 +161,11 @@ namespace ICTProjectGame.Player
                     {
                         ComponentInteractWithComponentHolder(PcComponentHolderScript, Collide.gameObject);
                     }
-                    else if ((m_Component == e_Components.Processor || m_Component == e_Components.Ram || m_Component == e_Components.GraphicsCard) && !PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard] && m_Component != e_Components.ProcessorCooling)
+                    else if ((m_Component == e_Components.Processor || m_Component == e_Components.Ram || m_Component == e_Components.GraphicsCard) && PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard] && m_Component != e_Components.ProcessorCooling)
                     {
                         ComponentInteractWithComponentHolder(PcComponentHolderScript, Collide.gameObject);
                     }
-                    else if (m_Component == e_Components.ProcessorCooling && !PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard])
+                    else if (m_Component == e_Components.ProcessorCooling && PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Motherboard] && PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)e_Components.Processor])
                     {
                         ComponentInteractWithComponentHolder(PcComponentHolderScript, Collide.gameObject);
                     }

@@ -10,6 +10,7 @@ TagManager:
   - Canvas
   - ComputerCase
   - Interactable
+  - Monitor
   layers:
   - Default
   - TransparentFX
