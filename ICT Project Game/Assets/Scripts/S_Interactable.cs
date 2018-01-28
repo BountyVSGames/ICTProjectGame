@@ -50,16 +50,8 @@ namespace ICTProjectGame.Player
         //Normal Update (Updated every frame)
         private void Update()
         {
-            if(m_PickedUp)
-            {
-                Debug.Log(Input.GetMouseButtonDown(0));
-                Debug.Log(m_PickUpDelay);
-                Debug.Log(m_PcComponentHolderActive);
-            }
-
             if (m_PickedUp && Input.GetMouseButtonDown(0) && m_PickUpDelay <= 0 && !m_PcComponentHolderActive)
             {
-                Debug.Log("T");
                 Disconnect();
             }
         }
@@ -115,6 +107,7 @@ namespace ICTProjectGame.Player
                     GetComponents<Collider>()[1].enabled = false;
 
                     transform.rotation = transform.parent.rotation;
+                    transform.localScale = transform.parent.localScale;
 
                     PcComponentHolderScript.G_PcBehaviourScript.G_BoolCheck[(int)m_Component] = true;
                     PcComponentHolderScript.G_PcBehaviourScript.UpdateChecklist();

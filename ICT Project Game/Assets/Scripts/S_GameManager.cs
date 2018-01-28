@@ -16,6 +16,10 @@ namespace ICTProjectGame.Managment
         }
 
         private e_GameState m_GameState;
+
+        [SerializeField]
+        private Sprite[] m_TuturialSprites;
+
         [SerializeField]
         private float m_MouseSensitivity;
         private float m_TimeOfGame;

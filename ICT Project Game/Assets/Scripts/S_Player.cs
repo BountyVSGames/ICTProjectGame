@@ -39,6 +39,14 @@ namespace ICTProjectGame.Player
 
             m_CrosshairImage = GameObject.FindObjectOfType<UnityEngine.UI.Image>();
 
+            for (int i = 0; i < GameObject.FindObjectsOfType<UnityEngine.UI.Image>().Length; i++)
+            {
+                if(GameObject.FindObjectsOfType<UnityEngine.UI.Image>()[i].name == "Crosshair")
+                {
+                    m_CrosshairImage = GameObject.FindObjectsOfType<UnityEngine.UI.Image>()[i];
+                }
+            }
+
             m_GameManagerScript = GameObject.FindObjectOfType<ICTProjectGame.Managment.S_GameManager>();
             m_MouseSensitivity = m_GameManagerScript.G_MouseSensitivity;
         }
