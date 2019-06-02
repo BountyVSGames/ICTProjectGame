@@ -13,6 +13,24 @@ ModelImporter:
     100010: Naald
     100012: Schijven
     100014: Schroeven
+    100016: polySurface1
+    100018: polySurface2
+    100020: polySurface3
+    100022: polySurface4
+    100024: polySurface5
+    100026: polySurface5 1
+    100028: transform1
+    100030: transform10
+    100032: transform11
+    100034: transform12
+    100036: transform2
+    100038: transform3
+    100040: transform4
+    100042: transform5
+    100044: transform6
+    100046: transform7
+    100048: transform8
+    100050: transform9
     400000: //RootNode
     400002: Box1
     400004: Box2
@@ -21,6 +39,24 @@ ModelImporter:
     400010: Naald
     400012: Schijven
     400014: Schroeven
+    400016: polySurface1
+    400018: polySurface2
+    400020: polySurface3
+    400022: polySurface4
+    400024: polySurface5
+    400026: polySurface5 1
+    400028: transform1
+    400030: transform10
+    400032: transform11
+    400034: transform12
+    400036: transform2
+    400038: transform3
+    400040: transform4
+    400042: transform5
+    400044: transform6
+    400046: transform7
+    400048: transform8
+    400050: transform9
     2300000: Box1
     2300002: Box2
     2300004: HDD
@@ -28,6 +64,7 @@ ModelImporter:
     2300008: Naald
     2300010: Schijven
     2300012: Schroeven
+    2300014: polySurface5
     3300000: Box1
     3300002: Box2
     3300004: HDD
@@ -35,6 +72,7 @@ ModelImporter:
     3300008: Naald
     3300010: Schijven
     3300012: Schroeven
+    3300014: polySurface5
     4300000: Schijven
     4300002: Naald
     4300004: Box2
@@ -42,6 +80,7 @@ ModelImporter:
     4300008: Box1
     4300010: Mini_naald
     4300012: HDD
+    4300014: polySurface5
     9500000: //RootNode
   externalObjects:
   - first:

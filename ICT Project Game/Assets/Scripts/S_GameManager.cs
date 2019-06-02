@@ -56,7 +56,7 @@ namespace ICTProjectGame.Managment
 
             m_TuturialSpritesAdded = m_TuturialSprites;
 
-            SpriteRenderer[] m_TutorialSpriteRenderers = GameObject.FindObjectOfType<S_TuturialSprites>().transform.GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer[] m_TutorialSpriteRenderers = GameObject.FindObjectOfType<>().transform.GetComponentsInChildren<SpriteRenderer>();
 
             for (int i = 0; i < m_TutorialSpriteRenderers.Length; i++)
             {
